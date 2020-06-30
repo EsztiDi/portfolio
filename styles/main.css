@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Bubblegum+Sans&family=Pacifico&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000;
+}
+
+body {
+  overflow: hidden;
+}
+nav {
+  font-family: 'Pacifico', cursive;
+  position: fixed;
+}
+ul {
+  list-style: none;
+}
+body > a {
+  /* display: none; */
+  width: 100%;
+  height: 22vh;
+  transform: skewY(-5deg);
+  position: fixed;
+  left: 0;
+  transition: height 0.6s ease, top 0.6s ease, background-color 0.5s ease;
+}
+body > a:hover {
+  background: #8d8d8d;
+}
+body > a:hover p {
+  color: #FFF;
+}
+.zero {
+  background: #F2BC18;
+  top: calc(-44vh - 11.5%);
+}
+.one {
+  background: #F2BC18;
+  top: calc(-22vh - 12%);
+  height: 44vh;
+}
+.two {
+  background: #F21885;
+  top: calc(22vh - 12.5%);
+}
+.three {
+  background: #18F27A;
+  top: calc(44vh - 13%);
+}
+.four {
+  background: #F29DBF;
+  top: calc(66vh - 13.5%);
+}
+.five {
+  background: #18F2EF;
+  top: calc(88vh - 14%);
+}
+.six {
+  background: #F2EB18;
+  top: calc(110vh - 14.5%);
+}
+.seven {
+  background: #F21885;
+  top: calc(132vh - 15%);
+}
+.eight {
+  background: #18F27A;
+  top: calc(154vh - 15.5%);
+}
+.one, .two, .three, .four {
+  cursor: pointer;
+}
+
+body > a p {
+  position: absolute;
+  bottom: 5%;
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 2rem;
+  transition: left 0.6s ease, font-size 0.6s ease, color 0.5s ease;
+  animation: left-in 1s;
+}
+.one p {
+  bottom: 2.5%;
+  left: 15%;
+}
+.two p {
+  left: 30%;
+}
+.three p {
+  left: 35%;
+}
+.four p {
+  left: 40%;
+}
+
+section {
+  overflow: auto;
+  height: 100vh;
+  padding: 5% 15%;
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  text-indent: 1rem;
+}
+
+@keyframes left-in {
+  from {
+    left: -200px;
+    opacity: 0;
+  }
+  to {
+    left: "";
+    opacity: 1;
+  }
+}
+@keyframes rainbow {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
