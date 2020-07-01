@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Bubblegum+Sans&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Comfortaa&family=Fredoka+One&family=Sniglet&display=swap');
 
+:root {
+  --hover-bg: #8d8d8d;
+  --hover-bg: #a1a1a1;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Comfortaa', cursive;
   color: #000;
+  background: transparent;
 }
 
 body {
@@ -17,17 +24,21 @@ nav {
 ul {
   list-style: none;
 }
+a {
+  text-decoration: none;
+}
 body > a {
-  /* display: none; */
+  z-index: 10;
+  position: fixed;
+  left: 0;
   width: 100%;
   height: 22vh;
   transform: skewY(-5deg);
-  position: fixed;
-  left: 0;
   transition: height 0.6s ease, top 0.6s ease, background-color 0.5s ease;
 }
 body > a:hover {
   background: #8d8d8d;
+  background: var(--hover-bg);
 }
 body > a:hover p {
   color: #FFF;
@@ -79,7 +90,7 @@ body > a p {
   font-family: 'Bubblegum Sans', cursive;
   font-size: 2rem;
   transition: left 0.6s ease, font-size 0.6s ease, color 0.5s ease;
-  animation: left-in 1s;
+  /* animation: left-in 1s; */
 }
 .one p {
   bottom: 2.5%;
@@ -98,12 +109,109 @@ body > a p {
 section {
   overflow: auto;
   height: 100vh;
-  padding: 5% 15%;
+  display: none;
 }
 h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 2rem;
+  font-family: 'Sniglet', cursive;
   text-indent: 1rem;
+}
+h2 {
+  font-family: 'Fredoka One', cursive;
+  font-family: 'Sniglet', cursive;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+#projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6rem 5% 6rem;
+  animation: fade-in 0.5s;
+}
+#contact {
+  padding: 7rem 15% 4rem;
+}
+#about {
+  padding: 9rem 15% 2rem;
+}
+
+#projects > div {
+  flex-basis: 30%;
+  min-width: 250px;
+  margin: 1%;
+  padding: 3%;
+  border: 3px solid #8d8d8d;
+  border: 3px solid var(--hover-bg);
+  border-radius: 25px;
+  text-align: center;
+}
+/* #projects > div:hover p {
+  display: block;
+} */
+.img-container {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  padding-top: 50%;
+  background: #8d8d8d;
+  background: var(--hover-bg);
+}
+.img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#projects .details {
+  display: none;
+  position: relative;
+  top: 0;
+  animation: down-in 0.6s;
+}
+.details > * {
+  /* z-index: -1;
+  position: relative;
+  top: 0;
+  animation: down-in 0.6s; */
+  /* font-family: 'Baloo 2', cursive; */
+  margin-top: 4%;
+  line-height: 1.5;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.buttons a {
+  font-weight: bold;
+  padding: 3% 6%;
+  margin: 0 1%;
+  /* border: 3px solid #8d8d8d; */
+  /* border: 3px solid var(--hover-bg); */
+  border-radius: 25px;
+  background: #cacaca;
+  transition: background-color 0.5s ease;
+}
+.buttons a:first-of-type:hover {
+  background: #18F27A;
+}
+.buttons a:last-of-type:hover {
+  background: #F21885;
+}
+
+@media screen and (max-width: 640px) {
+  #projects {
+    padding: 5rem 5% 5rem;
+  }
+  #contact {
+    padding: 6rem 10% 3rem;
+  }
+  #about {
+    padding: 8rem 10% 1rem;
+  }
 }
 
 @keyframes left-in {
@@ -113,6 +221,24 @@ h1 {
   }
   to {
     left: "";
+    opacity: 1;
+  }
+}
+@keyframes down-in {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: "";
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
 }
