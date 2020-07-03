@@ -5,6 +5,17 @@
   --hover-bg: #8d8d8d;
   --hover-bg: #a1a1a1;
 }
+::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+  width: 8px;
+  background: #c3c3c3;
+}
+::-webkit-scrollbar-thumb {
+  background: #a1a1a1;
+  border-radius: 25px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #646464;
+}
 * {
   margin: 0;
   padding: 0;
@@ -49,36 +60,36 @@ body > a:hover p {
 }
 .one {
   background: #F2BC18;
-  top: calc(-22vh - 12%);
+  top: calc(-22vh - (11.5% + 1 * 0.5%));
   height: 44vh;
 }
 .two {
   background: #F21885;
-  top: calc(22vh - 12.5%);
+  top: calc(22vh - (11.5% + 2 * 0.5%));
 }
 .three {
   background: #18F27A;
-  top: calc(44vh - 13%);
+  top: calc(44vh - (11.5% + 3 * 0.5%));
 }
 .four {
   background: #F29DBF;
-  top: calc(66vh - 13.5%);
+  top: calc(66vh - (11.5% + 4 * 0.5%));
 }
 .five {
   background: #18F2EF;
-  top: calc(88vh - 14%);
+  top: calc(88vh - (11.5% + 5 * 0.5%));
 }
 .six {
   background: #F2EB18;
-  top: calc(110vh - 14.5%);
+  top: calc(110vh - (11.5% + 6 * 0.5%));
 }
 .seven {
   background: #F21885;
-  top: calc(132vh - 15%);
+  top: calc(132vh - (11.5% + 7 * 0.5%));
 }
 .eight {
   background: #18F27A;
-  top: calc(154vh - 15.5%);
+  top: calc(154vh - (11.5% + 8 * 0.5%));
 }
 .one, .two, .three, .four {
   cursor: pointer;
@@ -107,9 +118,9 @@ body > a p {
 }
 
 section {
-  overflow: auto;
-  height: 100vh;
   display: none;
+  height: 100vh;
+  overflow: auto;
 }
 h1 {
   font-family: 'Pacifico', cursive;
@@ -120,26 +131,17 @@ h2 {
   font-family: 'Fredoka One', cursive;
   font-family: 'Sniglet', cursive;
   text-align: center;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 #projects {
-  display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  padding: 6rem 5% 6rem;
-  animation: fade-in 0.5s;
+  padding: 6rem 10% 6rem;
 }
-#contact {
-  padding: 7rem 15% 4rem;
-}
-#about {
-  padding: 9rem 15% 2rem;
-}
-
 #projects > div {
-  flex-basis: 30%;
+  flex-basis: 35%;
   min-width: 250px;
   margin: 1%;
   padding: 3%;
@@ -147,10 +149,14 @@ h2 {
   border: 3px solid var(--hover-bg);
   border-radius: 25px;
   text-align: center;
+  transition: box-shadow 0.5s ease;
 }
-/* #projects > div:hover p {
+#projects > div:hover {
+  box-shadow: 5px 5px 10px #8d8d8d, -3px -3px 10px #d6d6d6;
+}
+.show {
   display: block;
-} */
+}
 .img-container {
   z-index: 1;
   position: relative;
@@ -158,6 +164,7 @@ h2 {
   padding-top: 50%;
   background: #8d8d8d;
   background: var(--hover-bg);
+  /* cursor: pointer; */
 }
 .img-container img {
   position: absolute;
@@ -169,16 +176,16 @@ h2 {
   display: none;
   position: relative;
   top: 0;
-  animation: down-in 0.6s;
+  opacity: 0;
+  animation: down-in 0.6s forwards;
 }
-.details > * {
-  /* z-index: -1;
-  position: relative;
-  top: 0;
-  animation: down-in 0.6s; */
-  /* font-family: 'Baloo 2', cursive; */
-  margin-top: 4%;
+#projects p, .details > * {
+  margin-top: 5%;
   line-height: 1.5;
+  /* position: relative;
+  top: 0;
+  opacity: 0;
+  animation: down-in 0.6s forwards; */
 }
 .buttons {
   display: flex;
@@ -186,14 +193,13 @@ h2 {
   justify-content: space-around;
 }
 .buttons a {
-  font-weight: bold;
   padding: 3% 6%;
   margin: 0 1%;
-  /* border: 3px solid #8d8d8d; */
-  /* border: 3px solid var(--hover-bg); */
+  font-weight: 900;
+  white-space: nowrap;
   border-radius: 25px;
   background: #cacaca;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 .buttons a:first-of-type:hover {
   background: #18F27A;
@@ -201,16 +207,34 @@ h2 {
 .buttons a:last-of-type:hover {
   background: #F21885;
 }
+.buttons a:hover, .buttons a:hover i {
+  color: #FFF;
+}
+i {
+  transition: color 0.5s ease;
+}
+
+#contact {
+  padding: 8rem 15% 4rem;
+}
+#about {
+  padding: 10rem 15% 2rem;
+}
 
 @media screen and (max-width: 640px) {
   #projects {
-    padding: 5rem 5% 5rem;
+    padding: 5rem 10% 6rem;
+  }
+  #projects > div {
+    flex-basis: 100%;
+    margin: 3% 0;
+    padding: 5%;
   }
   #contact {
-    padding: 6rem 10% 3rem;
+    padding: 7rem 10% 4rem;
   }
   #about {
-    padding: 8rem 10% 1rem;
+    padding: 9rem 10% 2rem;
   }
 }
 
@@ -226,7 +250,7 @@ h2 {
 }
 @keyframes down-in {
   from {
-    top: -100px;
+    top: -50px;
     opacity: 0;
   }
   to {
