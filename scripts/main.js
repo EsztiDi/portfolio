@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     $(".one").css({"top": "calc(-4rem - 0%)", "height": "4rem"});
     $(".one p").css("left", "2%");
-
+    
     var topIndex = $(href).index();
     $(".panels").slice(2, (topIndex + 3)).each(function(index) {
       $(this).css("top", "calc(" + (index * 2) + "rem - " + ((index + 1) * 0.5) + "%)");
@@ -28,7 +28,7 @@ $(document).ready(function() {
     });
     $(".panels").slice((topIndex + 3), last).each(function(index) {
       $(this).css("top", "calc(95vh + " + ((index + topIndex) * 2) + "rem - " + ((index + topIndex) * 0.5) + "%)");
-      $(this).find("p").css("left", ((index + topIndex) * 5 + 80) + "%")
+      $(this).find("p").css("left", ((index + topIndex) * 4 + 80) + "%")
     });
 
     if (window.matchMedia("(max-width: 900px)").matches) {
@@ -41,41 +41,35 @@ $(document).ready(function() {
       });
       $(".panels").slice((topIndex + 3), last).each(function(index) {
         $(this).css("top", "calc(90vh + " + ((index + topIndex) * 2) + "rem - " + ((index + topIndex) * 0.5) + "%)");
-        $(this).find("p").css("left", ((index + topIndex) * 5 + 75) + "%")
+        $(this).find("p").css("left", ((index + topIndex) * 5 + 70) + "%")
       });
     }
   }
 
-  // function noEffect() {
-  //   $(".panels, .panels p").css({ transition: "none", animation: "none" });
-  //   setTimeout(function () {
-  //     $(".panels, .panels p").css({ transition: "", animation: "" });
-  //   }, 100);
-  // }
+  function noEffect() {
+    $(".panels, .panels p").css({ transition: "none", animation: "none" });
+    setTimeout(function () {
+      $(".panels, .panels p").css({ transition: "", animation: "" });
+    }, 100);
+  }
 
   function openProjects() {
     setPositions();
-    $("#projects").fadeIn(500).css("display", "flex").scrollTop(0);
-    // sameAttr();
-    // $(".three, .four, .five, .six, .seven, .eight").each(function(index) {
-    //   $(this).css("top", "calc(95vh + " + (index * 2) + "rem - " + (index * 0.5) + "%)");
-    //   $(this).find("p").css("left", (index * 5 + 80) + "%")
-    // });
-    // if (window.matchMedia("(max-width: 900px)").matches) {
-    //   $(".three, .four, .five, .six, .seven, .eight").each(function(index) {
-    //     $(this).css("top", "calc(90vh + " + (index * 2) + "rem - " + (index * 0.5) + "%)");
-    //     $(this).find("p").css("left", (index * 5 + 75) + "%")
-    //   });
-    // }
+    // $("#projects").fadeIn(500).css("display", "flex").scrollTop(0);
+    $("#projects").fadeIn(500).scrollTop(0);
   };
+  function openAbout() {
+    setPositions();
+    $("#about").fadeIn(500, function() {
+      $("#about li i").each(function(index) {
+        $(this).delay(index * 250).animate({"color": colours[index]}).delay(250).animate({"color": "#8d8d8d"});
+      });
+    }).scrollTop(0);
+  }  
   function openContact() {
     setPositions();
     $("#contact").fadeIn(500).scrollTop(0);
   }
-  function openAbout() {
-    setPositions();
-    $("#about").fadeIn(500).scrollTop(0);
-  }  
   
   openSection = {
     "": function () {
@@ -84,16 +78,48 @@ $(document).ready(function() {
     "#projects": function () {
       openProjects();
     },
-    "#contact": function () {
-      openContact();
-    },
     "#about": function () {
       openAbout();
+    },
+    "#contact": function () {
+      openContact();
     },
   };
 
   openSection[hash]();
   // noEffect();
+
+  if (hash === "") {
+    $(".panels p").eq(0).fadeOut(50, function () {
+      $(this).text("Welcome to Eszter's Portfolio!").fadeIn(50);
+    });
+    $(".panels p").eq(1).fadeOut(50, function () {
+      $(this).text("Eszter's Projects").fadeIn(50);
+    });
+    $(".panels p").eq(2).fadeOut(50, function () {
+      $(this).text("About Eszter").fadeIn(50);
+    });
+    $(".panels p").eq(3).fadeOut(50, function () {
+      $(this).text("Contact Eszter").fadeIn(50);
+    });
+  }
+
+  $(".panels").slice(2, 5).one("click", function text() {
+    if ($(this).find("p").text().length > 11) {
+      $(".panels p").eq(0).fadeOut(200, function () {
+        $(this).text("Eszter's Portfolio").fadeIn(300);
+      });
+      $(".panels p").eq(1).fadeOut(300, function () {
+        $(this).text("Projects").fadeIn(300);
+      });
+      $(".panels p").eq(2).fadeOut(300, function () {
+        $(this).text("About").fadeIn(300);
+      });
+      $(".panels p").eq(3).fadeOut(300, function () {
+        $(this).text("Contact").fadeIn(300);
+      });
+    }
+  });
 
   $(".one").on("click", function () {
     reset();
@@ -113,89 +139,6 @@ $(document).ready(function() {
     }
   });
 
-  // $(".two").on("click", function () {
-  //   if (document.location.href.includes("projects") || $(".two").height() > 32) {
-  //     openSection[hash]();
-  //     // openProjects();
-  //   } else {
-  //     reset();
-  //     setTimeout(function () {
-  //       openSection[hash]();
-  //       // openProjects();
-  //     }, delay);
-  //   }
-  // });
-
-  // function setContact() {
-  //   sameAttr();
-  //   $(".three").css("top", "calc(2rem - 1%)");
-  //   $(".three p").css("left", "17%");
-  //   $(".four, .five, .six, .seven, .eight").each(function(index) {
-  //     $(this).css("top", "calc(95vh + " + ((index + 1) * 2) + "rem - " + ((index + 1) * 0.5) + "%)");
-  //     $(this).find("p").css("left", ((index + 1) * 5 + 80) + "%")
-  //   });
-  //   if (window.matchMedia("(max-width: 900px)").matches) {
-  //     $(".three").css("top", "calc(3.5rem - 1%)");
-  //     $(".four, .five, .six, .seven, .eight").each(function(index) {
-  //       $(this).css("top", "calc(90vh + " + ((index + 1) * 2) + "rem - " + ((index + 1) * 0.5) + "%)");
-  //       $(this).find("p").css("left", ((index + 1) * 5 + 75) + "%")
-  //     });
-  //   }
-  //   $("#contact").fadeIn(500).scrollTop(0);
-  // }
-  // if (document.location.href.includes("contact")) {
-  //   openContact();
-  //   // setContact();
-  //   noEffect();
-  // }
-  // $(".three").on("click", function () {
-  //   if (document.location.href.includes("contact") || $(".three").height() > 32) {
-  //     openContact();
-  //     // setContact();
-  //   } else {
-  //     reset();
-  //     setTimeout(function () {
-  //     openContact();
-  //       // setContact();
-  //     }, delay);
-  //   }
-  // });
-
-  // function openAbout() {
-  //   sameAttr();
-  //   $(".three").css("top", "calc(2rem - 1%)");
-  //   $(".three p").css("left", "17%");
-  //   $(".four").css("top", "calc(4rem - 1.5%)");
-  //   $(".four p").css("left", "22%");
-  //   $(".five, .six, .seven, .eight").each(function(index) {
-  //     $(this).css("top", "calc(95vh + " + ((index + 2) * 2) + "rem - " + ((index + 2) * 0.5) + "%)");
-  //     $(this).find("p").css("left", ((index + 2) * 5 + 80) + "%")
-  //   });
-  //   if (window.matchMedia("(max-width: 900px)").matches) {
-  //     $(".three").css("top", "calc(3.5rem - 1%)");
-  //     $(".four").css("top", "calc(5.5rem - 1.5%)");
-  //     $(".five, .six, .seven, .eight").each(function(index) {
-  //       $(this).css("top", "calc(90vh + " + ((index + 2) * 2) + "rem - " + ((index + 2) * 0.5) + "%)");
-  //       $(this).find("p").css("left", ((index + 2) * 5 + 75) + "%")
-  //     });
-  //   }
-  //   $("#about").fadeIn(500).scrollTop(0);
-  // }  
-  // if (document.location.href.includes("about")) {
-  //   openAbout();
-  //   noEffect();
-  // }
-  // $(".four").on("click", function () {
-  //   if (document.location.href.includes("about") || $(".four").height() > 32) {
-  //     openAbout();
-  //   } else {
-  //     reset();
-  //     setTimeout(function() {
-  //       openAbout();
-  //     }, delay);
-  //   }
-  // });
-
   // $("#projects > div").hover(function() {
   //   $(this).find(".details").slideDown();
   // }, function() {
@@ -204,9 +147,31 @@ $(document).ready(function() {
   // $("#projects > div").on("click", function () {
   //   $(this).find(".details").slideToggle();
   // });
-  $("#projects > div").hover(function() {
-    $(this).find(".details").slideToggle();
+
+  // if (window.matchMedia("(min-width: 901px)").matches) {
+  //   $("#projects > div").hover(function () {
+  //     $(this).find(".buttons").slideToggle().css("display", "flex");
+  //   });
+  // }
+
+  // $("#about li").each(function(index) {
+  //   $(this).css("animation-delay", ((index + 1) * 0.4) + "s");
+  // });
+  // $("#about .buttons").css("animation-delay", (($("#about li").length + 1) * 0.4) + "s");
+  
+  var colours = ["#F2BC18", "#F21885", "#18F27A", "#F29DBF", "#18F2EF", "#F2EB18"];
+  $("#about li").hover(function() {
+    let index = $(this).index();
+    $(this).find("i").css("color", colours[index]);
+  }, function() { $(this).find("i").css("color", ""); });
+  // if ($("#about:visible")) {
+  //   $("#about li i").each(function(index) {
+  //     $(this).delay(index * 200).animate({"color": colours[index]}).delay((index + 1) * 200).animate({"color": "#8d8d8d"});
+  //   });
+  // };
+
+  $("#contact div").each(function(index) {
+    $(this).css("animation-delay", ((index + 1) * 0.2) + "s");
   });
-
-
+  
 })
