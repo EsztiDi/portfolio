@@ -1,131 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Eszter's portfolio"/>
-  <meta name="theme-color" content="#fff"/>
-  <title>Eszter Diana Toth</title>
-  <link rel="shortcut icon" href="./images/favicon.ico"/>
-  <link rel="stylesheet" href="./styles/fa-all.css"/>
-  <link rel="stylesheet" href="./styles/main.css"/>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-</head>
-<body>
-  <a class="panels zero"></a>
-  <a class="panels one" href="#"><p>Eszter's Portfolio</p></a>
-  <a class="panels two" href="#projects"><p>Projects</p></a>
-  <a class="panels three" href="#about"><p>About</p></a>
-  <a class="panels four" href="#contact"><p>Contact</p></a>
-  <a class="panels five"></a>
-  <a class="panels six"></a>
-  <a class="panels seven"></a>
-  <a class="panels eight"></a>
-  
-  <!-- <div class="zero"></div>
-  <div class="one"><a href="">Hello, I'm Eszter.</a></div>
-  <div class="two"><a href="#projects">Projects</a></div>
-    <section id="projects">
-      <h1>Projects</h1>
-    </section>
-  <div class="three"><a href="#contact">Contact</a></div>
-    <section id="contact">
-      <h1>Contact</h1>
-    </section>
-  <div class="four"><a href="#about">About</a></div>
-    <section id="about">
-      <h1>About</h1>
-    </section>
-  <div class="five"></div>
-  <div class="six"></div>
-  <div class="seven"></div>
-  <div class="eight"></div> -->
-
-  <!-- <nav>
-    <ul>
-      <li><a href="#">Hello, I'm Eszter.</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav> -->
-  <main>
-    <section id="projects">
-      <div>
-        <h2>ETracker</h2>
-        <div class="img-container"><img src="./images/etracker.jpg" alt="ETracker Image"></div>
-        <div class="details">
-          <p>An online issue tracker with authentication and user groups.</p>
-          <p>Guest login - username: Guest, password: GuestLogin987</p>
-          <p><strong>Languages:</strong> Python/Django, HTML, CSS, JavaScript/jQuery</p>
-          <p><strong>Database:</strong> SQLite</p>
-        </div>
-        <div class="buttons">
-          <a href="https://etracker.eu.pythonanywhere.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-wifi"></i> Live</a>
-          <a href="https://github.com/EsztiDi/etracker/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Eszter Diana Toth's web developer portfolio"
+    />
+    <meta name="theme-color" content="#fff" />
+    <title>Eszter Diana Toth</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/styles/fa-all.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body onhashchange="handleHashChange()">
+    <nav>
+      <div id="bg">
+        <img src="/images/bird1.svg" alt="Bird1" id="bird1" class="birds" />
+        <img src="/images/bird1.svg" alt="Bird2" id="bird2" class="birds" />
+        <img src="/images/bird2.svg" alt="Bird3" id="bird3" class="birds" />
+        <img src="/images/bird1.svg" alt="Bird4" id="bird4" class="birds" />
+        <img src="/images/bird2.svg" alt="Bird5" id="bird5" class="birds" />
+        <img src="/images/cloud1.svg" alt="Cloud1" id="cloud1" />
+        <img src="/images/cloud2.svg" alt="Cloud2" id="cloud2" />
+        <img src="/images/cloud3.svg" alt="Cloud3" id="cloud3" />
       </div>
-      <div>
-        <h2>In Crescendo Duo</h2>
-        <div class="img-container"><img src="./images/increscendoduo.jpg" alt="In Crescendo Duo Image"></div>
-        <div class="details">
-          <p>Portfolio website for the instrumental duo, In Crescendo Duo, residing in Copenhagen.</p>
-          <p><strong>Languages:</strong> HTML, CSS, JavaScript/jQuery</p>
-        </div>
-        <div class="buttons">
-          <a href="https://increscendoduo.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-wifi"></i> Live</a>
-          <a href="https://github.com/EsztiDi/increscendoduo/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>
-        </div>
-      </div>
-      <div>
-        <h2>Vancouver 1887</h2>
-        <div class="img-container"><img src="./images/vancouver1887.jpg" alt="Vancouver 1887 Image"></div>
-        <div class="details">
-          <p>One-page interactive map for a friend's RPG game to be able to play via videochat.</p>
-          <p>Locations are being updated as the game goes on.</p>
-          <p><strong>Languages:</strong> HTML, CSS, JavaScript</p>
-        </div>
-        <div class="buttons">
-          <a href="https://vancouver1887.cf/" target="_blank" rel="noopener noreferrer"><i class="fas fa-wifi"></i> Live</a>
-          <a href="https://github.com/EsztiDi/map/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <h1>Eszter Diana Toth</h1>
       <ul>
-        <li><i class="fas fa-laptop-code"></i> Aspiring web developer</li>
-        <li>Looking for a junior developer position <i class="fas fa-search-location"></i></li>
-        <li><i class="fas fa-book-open"></i> Learning Python, JavaScript, CSS, HTML and more on the way</li>
-        <li>All self-directed, with the help of online resources and a lot of dedication <i class="fas fa-route"></i></li>
-        <li><i class="fas fa-history"></i> Born in Hungary, has been living in London for nearly 6 years</li>
-        <li>Finally following my love for computers <i class="far fa-heart"></i></li>
+        <li class="home">
+          <a href="#"
+            ><p>Welcome to Eszter&apos;s<br />Portfolio!</p></a
+          >
+        </li>
+        <li class="about">
+          <a href="#about"><p>About</p></a>
+          <p class="about2">About</p>
+        </li>
+        <li class="projects">
+          <a href="#projects"><p>Projects</p></a>
+          <p class="projects2">Projects</p>
+        </li>
+        <li class="contact">
+          <a href="#contact"><p>Contact</p></a>
+          <p class="contact2">Contact</p>
+        </li>
       </ul>
-      <div class="buttons">
-        <a href="" target="_blank" rel="noopener noreferrer"><i class="far fa-user-circle"></i> Online CV</a>
+      <div id="couch" class="contain">
+        <img src="/images/girl.svg" alt="Girl" id="girl" />
+        <img src="/images/cup.svg" alt="Cup" id="cup" />
+        <img src="/images/bag.svg" alt="Bag" id="bag" />
       </div>
-    </section>
-    <section id="contact">
-      <h2>I welcome all enquiries.<br>Please feel free to contact me via any of the options below.</h2>
-      <div id="email">
-        <h3><i class="far fa-envelope"></i> E-mail</h3>
-        <a href="mailto:esztit@gmail.com?Subject=Enquiry" target="_blank" rel="noopener noreferrer">esztit@gmail.com <i class="fas fa-external-link-alt"></i></a>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h1>Hi, my name is Eszter Diana Toth</h1>
+        <ul>
+          <li>
+            An aspiring web developer focused on <b>&nbsp;front-end</b>&nbsp;<i
+              class="fas fa-desktop"
+            ></i>
+          </li>
+          <li>
+            <i class="fas fa-code"></i>&nbsp;Have experience with
+            <b>&nbsp;React, Next.js, JavaScript, CSS, HTML, Git&nbsp;</b> and
+            more on the way
+          </li>
+          <li>
+            All <b>&nbsp;self-taught</b>, with the help of online resources and
+            dedication&nbsp;<i class="fas fa-book-open"></i>
+          </li>
+          <li>
+            <i class="fas fa-film"></i>&nbsp;Enjoy watching movies and series
+            (Marvel fan), travelling, dancing
+          </li>
+          <li>
+            Born in Hungary, currently based in London&nbsp;<i
+              class="fas fa-globe-americas"
+            ></i>
+          </li>
+        </ul>
+        <div class="buttons">
+          <a href="" target="_blank" rel="noopener noreferrer"
+            >Download CV <i class="fas fa-download"></i
+          ></a>
+        </div>
+        <img id="girl2" src="/images/girl2.svg" alt="Girl" />
+      </section>
+
+      <section id="projects">
+        <div>
+          <h2>The Watchlist App</h2>
+          <div class="img-container">
+            <img src="/images/watchlistapp.jpg" alt="Watchlist App Image" />
+          </div>
+          <div class="details">
+            <p>
+              A web app to create watchlists for movies and TV shows with a
+              &quot;share to edit&quot; option, weekly releases summary email,
+              episode tracking and calendar view.
+            </p>
+            <details>
+              <summary><strong>Goal</strong></summary>
+              <p>
+                To have watchlists that are easy to edit and can be shared,
+                edited with others to plan movie nights. All added features are
+                based on feedback and personal preference.
+              </p>
+            </details>
+            <p>
+              <strong>Tech:</strong>
+              <span class="tech"
+                ><span>Next.js</span> <span>React</span>
+                <span>Material-UI</span>
+              </span>
+            </p>
+            <p>
+              <strong>Database:</strong> MongoDB Atlas, TMDb API (movie and TV
+              show data)
+            </p>
+            <p><strong>Email API:</strong> MailerSend</p>
+          </div>
+          <div class="buttons">
+            <a
+              href="https://mywatchlists.watch/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-wifi"></i> Live</a
+            >
+            <a
+              href="https://github.com/EsztiDi/watchlist-app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-code"></i> Code</a
+            >
+          </div>
+        </div>
+        <div>
+          <h2>ETracker</h2>
+          <div class="img-container">
+            <img src="/images/etracker.jpg" alt="ETracker Image" />
+          </div>
+          <div class="details">
+            <p>
+              An online issue tracker with authentication and user groups. Guest
+              login username:&nbsp;Guest, password:&nbsp;GuestLogin987
+            </p>
+            <!-- <p>Guest login - username: Guest, password: GuestLogin987</p> -->
+            <details>
+              <summary><strong>Goal</strong></summary>
+              <p>
+                To try Django and to create a web app that I can use to track
+                future projects.
+              </p>
+            </details>
+            <p>
+              <strong>Tech:</strong>
+              <span class="tech">
+                <span>Django</span> <span>Python</span> <span>HTML</span>
+                <span>CSS</span> <span>JavaScript</span>
+                <span>jQuery</span></span
+              >
+            </p>
+            <p><strong>Database:</strong> SQLite</p>
+          </div>
+          <div class="buttons">
+            <a
+              href="https://etracker.eu.pythonanywhere.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-wifi"></i> Live</a
+            >
+            <a
+              href="https://github.com/EsztiDi/etracker/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-code"></i> Code</a
+            >
+          </div>
+        </div>
+        <div>
+          <h2>In Crescendo Duo</h2>
+          <div class="img-container">
+            <img
+              src="/images/increscendoduo.jpg"
+              alt="In Crescendo Duo Image"
+            />
+          </div>
+          <div class="details">
+            <p>
+              Portfolio website for the instrumental duo, In Crescendo Duo,
+              based in Copenhagen.
+            </p>
+            <details>
+              <summary><strong>Goal</strong></summary>
+              <p>
+                To create a clean, straightforward portfolio website according
+                to the clients&apos; needs and feedback.
+              </p>
+            </details>
+            <p>
+              <strong>Tech:</strong>
+              <span class="tech">
+                <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+                <span>jQuery</span></span
+              >
+            </p>
+            <p><strong>CMS:</strong> CushyCMS</p>
+          </div>
+          <div class="buttons">
+            <a
+              href="https://increscendoduo.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-wifi"></i> Live</a
+            >
+            <a
+              href="https://github.com/EsztiDi/increscendoduo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-code"></i> Code</a
+            >
+          </div>
+        </div>
+        <div>
+          <h2>Vancouver 1887</h2>
+          <div class="img-container">
+            <img src="/images/vancouver1887.jpg" alt="Vancouver 1887 Image" />
+          </div>
+          <div class="details">
+            <p>One-page interactive map for a friend&apos;s RPG game.</p>
+            <details>
+              <summary><strong>Goal</strong></summary>
+              <p>
+                To create an interactive map that is accessible to a group
+                playing through video chat.
+              </p>
+            </details>
+            <p>
+              <strong>Tech:</strong>
+              <span class="tech">
+                <span>HTML</span> <span>CSS</span> <span>JavaScript</span></span
+              >
+            </p>
+          </div>
+          <div class="buttons">
+            <a
+              href="https://vancouver1887.cf/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-wifi"></i> Live</a
+            >
+            <a
+              href="https://github.com/EsztiDi/map/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-code"></i> Code</a
+            >
+          </div>
+        </div>
+        <div>
+          <h2>My Portfolio</h2>
+          <div class="img-container">
+            <img src="/images/portfolio.jpg" alt="Portfolio Image" />
+          </div>
+          <div class="details">
+            <p>My professional portfolio. (Portfolioception.)</p>
+            <details>
+              <summary><strong>Goal</strong></summary>
+              <p>
+                To create a one-page website with fluid styles that&apos;s only
+                a little over-the-top to showcase my talent.&nbsp;:)
+              </p>
+            </details>
+            <p>
+              <strong>Tech:</strong>
+              <span class="tech">
+                <span>HTML</span> <span>CSS</span> <span>JavaScript</span></span
+              >
+            </p>
+          </div>
+          <div class="buttons">
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><i class="fas fa-wifi"></i> Live</a
+            >
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><i class="fas fa-code"></i> Code</a
+            >
+          </div>
+        </div>
+        <span class="carousel-butons">
+          <a class="prev" onclick="plusSlides(-1)"
+            ><i class="fas fa-chevron-left"></i
+          ></a>
+          <div id="computer" class="contain">
+            <span class="dots">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+              <span class="dot" onclick="currentSlide(5)"></span>
+            </span>
+          </div>
+          <a class="next" onclick="plusSlides(1)"
+            ><i class="fas fa-chevron-right"></i></a
+        ></span>
+      </section>
+
+      <section id="contact">
+        <h2>All enquiries are welcome. Feel free to get in touch.</h2>
+        <div id="email">
+          <h3><i class="far fa-envelope"></i> E-mail</h3>
+          <a
+            href="mailto:esztit@gmail.com?Subject=Enquiry"
+            target="_blank"
+            rel="noopener noreferrer"
+            >esztit@gmail.com <i class="fas fa-external-link-alt"></i
+          ></a>
+        </div>
+        <div id="linkedin">
+          <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
+          <a
+            href="https://www.linkedin.com/in/eszter-diana-toth-a06017188"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Eszter Diana Toth <i class="fas fa-external-link-alt"></i
+          ></a>
+        </div>
+        <div id="github">
+          <h3><i class="fab fa-github"></i> GitHub</h3>
+          <a
+            href="https://github.com/EsztiDi"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EsztiDi <i class="fas fa-external-link-alt"></i
+          ></a>
+        </div>
+        <img id="girl3" src="/images/girl3.svg" alt="Girl" />
+      </section>
+    </main>
+    <footer>
+      <div class="social">
+        <a
+          class="linkedin"
+          href="https://www.linkedin.com/in/eszter-diana-toth-a06017188"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          class="github"
+          href="https://github.com/EsztiDi"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
       </div>
-      <div id="phone">
-        <h3><i class="fas fa-phone"></i> Phone</h3>
-        <p>+44 7438 987 018</p>
+      <div>
+        <a href="https://iradesign.io" target="_blank" rel="noopener noreferrer"
+          >Illustrations by IRA Design</a
+        >
+        <p>Copyright &copy; 2021-, Eszter Diana Toth</p>
       </div>
-      <div id="linkedin">
-        <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/eszter-diana-toth-a06017188" target="_blank" rel="noopener noreferrer">Eszter Diana Toth <i class="fas fa-external-link-alt"></i></a>
-      </div>
-      <div id="github">
-        <h3><i class="fab fa-github"></i> GitHub</h3>
-        <a href="https://github.com/EsztiDi" target="_blank" rel="noopener noreferrer">EsztiDi <i class="fas fa-external-link-alt"></i></a>
-      </div>
-    </section>
-  </main>
-  <script src="./scripts/jquery.color.plus-names-2.1.2.min.js"></script>
-  <script src="./scripts/main.js"></script>
-</body>
+    </footer>
+    <script src="/scripts/main.js"></script>
+  </body>
 </html>

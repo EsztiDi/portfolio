@@ -1,177 +1,267 @@
-$(document).ready(function() {
+var links = document.querySelectorAll("nav ul a");
+var texts = document.querySelectorAll("nav li p");
+var homeText = document.querySelector(".home p");
+var nav = document.querySelector("nav");
+var list = document.querySelector("nav ul");
+var listItems = document.querySelectorAll("nav li");
+var couch = document.getElementById("couch");
+var bg = document.getElementById("bg");
+var bird1 = document.getElementById("bird1");
+var bird2 = document.getElementById("bird2");
+var bird3 = document.getElementById("bird3");
+var bird4 = document.getElementById("bird4");
+var bird5 = document.getElementById("bird5");
+var birds = document.querySelectorAll(".birds");
+var details = document.querySelectorAll("details");
+var sections = document.querySelectorAll("section");
+var mobile = window.matchMedia("(max-width: 900px)").matches;
+// var pos = {
+//   bird1: {
+//     y: 15,
+//     x: 14,
+//   },
+//   bird2: {
+//     y: 58,
+//     x: 23,
+//   },
+//   bird3: {
+//     y: 63,
+//     x: 28,
+//   },
+//   bird4: {
+//     y: 16,
+//     x: 92,
+//   },
+//   bird5: {
+//     y: 28,
+//     x: 82,
+//   },
+// };
 
-  var delay = 600,
-    last = $(".panels").length,
-    hash = document.location.hash,
-    href = hash,
-    openSection;
+function mouseMoveMethod(e) {
+  // var bgX = (e.pageX * -1) / 20;
+  // var bgY = (e.pageY * -1) / 20;
+  // bg.setAttribute("style", `background-position: ${bgX}px ${bgY}px;`);
 
-  function reset() {
-    $(".panels").css({"height": "", "top": ""});
-    $(".panels p").css({"font-size": "", "left": ""});
-    $("section").fadeOut(500);
-  }
+  // birds.forEach((el, index) => {
+  //   let i = index + 1;
+  //   el.setAttribute(
+  //     "style",
+  //     `top: calc(${pos["bird" + i]["y"]}% + ${
+  //       (e.pageY * -1 * i ** (1 / 2)) / (50 + i * 10)
+  //     }px); left: calc(${pos["bird" + i]["x"]}% + ${
+  //       (e.pageX * -1 * i ** (1 / 2)) / (50 + i * 10)
+  //     }px);`
+  //   );
+  // });
 
-  function setPositions() {
-    $(".panels").css("height", "2rem");
-    $(".panels p").css("font-size", "1.5rem");
+  // Birds move in the opposite direction to the mouse
+  var x = e.pageX * -1,
+    y = e.pageY * -1;
 
-    $(".zero").css("top", "calc(-6rem + 0.5%)");
+  var bird1X = x / 380;
+  var bird1Y = y / 350;
+  bird1.setAttribute("style", `top: ${13 + bird1Y}%; left: ${12 + bird1X}%;`);
+  var bird2X = x / 500;
+  var bird2Y = y / 530;
+  bird2.setAttribute("style", `top: ${56 + bird2Y}%; left: ${21 + bird2X}%;`);
+  var bird3X = x / 250;
+  var bird3Y = y / 280;
+  bird3.setAttribute("style", `top: ${61 + bird3Y}%; left: ${25 + bird3X}%;`);
+  var bird4X = x / 580;
+  var bird4Y = y / 550;
+  bird4.setAttribute("style", `top: ${16 + bird4Y}%; left: ${88 + bird4X}%;`);
+  var bird5X = x / 280;
+  var bird5Y = y / 250;
+  bird5.setAttribute("style", `top: ${28 + bird5Y}%; left: ${80 + bird5X}%;`);
+}
+document.addEventListener("mousemove", mouseMoveMethod);
 
-    $(".one").css({"top": "calc(-4rem - 0%)", "height": "4rem"});
-    $(".one p").css("left", "2%");
-    
-    var topIndex = $(href).index();
-    $(".panels").slice(2, (topIndex + 3)).each(function(index) {
-      $(this).css("top", "calc(" + (index * 2) + "rem - " + ((index + 1) * 0.5) + "%)");
-      $(this).find("p").css("left", ((index * 5) + 12) + "%");
-    });
-    $(".panels").slice((topIndex + 3), last).each(function(index) {
-      $(this).css("top", "calc(95vh + " + ((index + topIndex) * 2) + "rem - " + ((index + topIndex) * 0.5) + "%)");
-      $(this).find("p").css("left", ((index + topIndex) * 4 + 80) + "%")
-    });
-
-    if (window.matchMedia("(max-width: 900px)").matches) {
-      $(".zero").css("top", "calc(-4.5rem + 0.5%)");
-      $(".one").css({"top": "calc(-2.5rem - 0%)", "height": "4rem"});
-      
-      $(".panels").slice(2, (topIndex + 3)).each(function(index) {
-        $(this).css("top", "calc(" + (index * 2 + 1.5) + "rem - " + ((index + 1) * 0.5) + "%)");
-        $(this).find("p").css("left", ((index * 5) + 17) + "%");
-      });
-      $(".panels").slice((topIndex + 3), last).each(function(index) {
-        $(this).css("top", "calc(90vh + " + ((index + topIndex) * 2) + "rem - " + ((index + topIndex) * 0.5) + "%)");
-        $(this).find("p").css("left", ((index + topIndex) * 5 + 70) + "%")
-      });
-    }
-  }
-
-  function noEffect() {
-    $(".panels, .panels p").css({ transition: "none", animation: "none" });
-    setTimeout(function () {
-      $(".panels, .panels p").css({ transition: "", animation: "" });
-    }, 100);
-  }
-
-  function openProjects() {
-    setPositions();
-    // $("#projects").fadeIn(500).css("display", "flex").scrollTop(0);
-    $("#projects").fadeIn(500).scrollTop(0);
-  };
-  function openAbout() {
-    setPositions();
-    $("#about").fadeIn(500, function() {
-      $("#about li i").each(function(index) {
-        $(this).delay(index * 250).animate({"color": colours[index]}).delay(250).animate({"color": "#8d8d8d"});
-      });
-    }).scrollTop(0);
-  }  
-  function openContact() {
-    setPositions();
-    $("#contact").fadeIn(500).scrollTop(0);
-  }
-  
-  openSection = {
-    "": function () {
-      reset();
-    },
-    "#projects": function () {
-      openProjects();
-    },
-    "#about": function () {
-      openAbout();
-    },
-    "#contact": function () {
-      openContact();
-    },
-  };
-
-  openSection[hash]();
-  // noEffect();
-
-  if (hash === "") {
-    $(".panels p").eq(0).fadeOut(50, function () {
-      $(this).text("Welcome to Eszter's Portfolio!").fadeIn(50);
-    });
-    $(".panels p").eq(1).fadeOut(50, function () {
-      $(this).text("Eszter's Projects").fadeIn(50);
-    });
-    $(".panels p").eq(2).fadeOut(50, function () {
-      $(this).text("About Eszter").fadeIn(50);
-    });
-    $(".panels p").eq(3).fadeOut(50, function () {
-      $(this).text("Contact Eszter").fadeIn(50);
-    });
-  }
-
-  $(".panels").slice(2, 5).one("click", function text() {
-    if ($(this).find("p").text().length > 11) {
-      $(".panels p").eq(0).fadeOut(200, function () {
-        $(this).text("Eszter's Portfolio").fadeIn(300);
-      });
-      $(".panels p").eq(1).fadeOut(300, function () {
-        $(this).text("Projects").fadeIn(300);
-      });
-      $(".panels p").eq(2).fadeOut(300, function () {
-        $(this).text("About").fadeIn(300);
-      });
-      $(".panels p").eq(3).fadeOut(300, function () {
-        $(this).text("Contact").fadeIn(300);
-      });
-    }
-  });
-
-  $(".one").on("click", function () {
+function handleHashChange() {
+  var hash = window.location.hash;
+  if (hash.length > 0) {
+    document.removeEventListener("mousemove", mouseMoveMethod);
+    select(hash.substring(1, hash.length));
+  } else {
     reset();
+    document.addEventListener("mousemove", mouseMoveMethod);
+  }
+}
+handleHashChange();
+
+function select(id) {
+  var linkWidth = mobile ? "60px" : "120px";
+  var linkHeight = mobile ? "40px" : "80px";
+  var fontSize = mobile ? "1.1rem" : "1.6rem";
+  // Resizing navigation links
+  links.forEach((el) => {
+    el.setAttribute(
+      "style",
+      `font-size: ${fontSize};  width: ${linkWidth}; height: ${linkHeight}; z-index: 2; animation: unset;`
+    );
+    el.firstElementChild.removeAttribute("style");
   });
 
-  $(".panels[href]:not(.one)").on("click", function() {
-    hash = document.location.hash,
-    href = $(this).attr("href");
+  // Resizing home link and changing text
+  var homeLink = document.querySelector(".home a");
+  if (mobile) {
+    homeLink.setAttribute(
+      "style",
+      `font-size: ${fontSize}; width: 120px; height: ${linkHeight}; z-index: 2; margin: 0;`
+    );
+  } else {
+    homeLink.setAttribute(
+      "style",
+      `font-size: ${fontSize}; width: 240px; height: ${linkHeight}; z-index: 2; margin: 0;`
+    );
+  }
+  homeText.textContent = "Eszter's Portfolio";
 
-    if (href === hash || $(this).height() > 32) {
-      openSection[href]();
-    } else {
-      reset();
-      setTimeout(function () {
-        openSection[href]();
-      }, delay);
-    }
+  // Resetting nav link texts before changing the active link
+  texts.forEach((el) => {
+    el.removeAttribute("style");
   });
 
-  // $("#projects > div").hover(function() {
-  //   $(this).find(".details").slideDown();
-  // }, function() {
-  //   $(this).find(".details").toggleClass("show");
-  // });
-  // $("#projects > div").on("click", function () {
-  //   $(this).find(".details").slideToggle();
-  // });
+  // Growing active nav link
+  var link = document.querySelector("." + id + " > a");
+  link.setAttribute(
+    "style",
+    `position: relative;
+    z-index: -2;
+    animation: grow 1s ease-in-out forwards;`
+  );
 
-  // if (window.matchMedia("(min-width: 901px)").matches) {
-  //   $("#projects > div").hover(function () {
-  //     $(this).find(".buttons").slideToggle().css("display", "flex");
-  //   });
-  // }
+  // Hiding active nav link text and replacing it
+  var text = document.querySelector("." + id + " p");
+  text.setAttribute("style", "display: none;");
+  var text2 = document.querySelector("." + id + "2");
+  text2.setAttribute("style", "display: flex;");
+  // Changing active li's width
+  var listItem = document.querySelector("." + id);
+  listItem.setAttribute("style", `width: ${linkWidth};`);
 
-  // $("#about li").each(function(index) {
-  //   $(this).css("animation-delay", ((index + 1) * 0.4) + "s");
-  // });
-  // $("#about .buttons").css("animation-delay", (($("#about li").length + 1) * 0.4) + "s");
-  
-  var colours = ["#F2BC18", "#F21885", "#18F27A", "#F29DBF", "#18F2EF", "#F2EB18"];
-  $("#about li").hover(function() {
-    let index = $(this).index();
-    $(this).find("i").css("color", colours[index]);
-  }, function() { $(this).find("i").css("color", ""); });
-  // if ($("#about:visible")) {
-  //   $("#about li i").each(function(index) {
-  //     $(this).delay(index * 200).animate({"color": colours[index]}).delay((index + 1) * 200).animate({"color": "#8d8d8d"});
-  //   });
-  // };
+  var navHeight = mobile ? "60px" : "100px";
+  // Changing nav height
+  nav.setAttribute("style", `height: ${navHeight};`);
+  // Changing nav list height
+  list.setAttribute(
+    "style",
+    `padding: 10px; flex-wrap: nowrap; height: ${navHeight};`
+  );
 
-  $("#contact div").each(function(index) {
-    $(this).css("animation-delay", ((index + 1) * 0.2) + "s");
+  // Hiding illustrations
+  couch.setAttribute("style", `display: none`);
+  bg.setAttribute("style", `display: none`);
+
+  // Closing details on Projects
+  details.forEach((el) => {
+    el.removeAttribute("open");
   });
-  
-})
+
+  var section = document.querySelector("#" + id);
+  // Hiding all sections before selectiong the active section
+  sections.forEach((el) => {
+    el.scrollTop = 0;
+    el.setAttribute("style", `display: none`);
+  });
+  // Making active section visible
+  switch (id) {
+    case "about":
+      section.setAttribute("style", "display: block;");
+      break;
+    case "projects":
+      section.setAttribute("style", "display: flex;");
+      break;
+    case "contact":
+      section.setAttribute("style", "display: flex;");
+      break;
+    default:
+      break;
+  }
+}
+
+// Removing all added style if navigating back to home
+function reset() {
+  links.forEach((el) => {
+    el.removeAttribute("style");
+    el.firstElementChild.removeAttribute("style");
+  });
+
+  texts.forEach((el) => {
+    el.removeAttribute("style");
+  });
+
+  // Resetting home link text
+  homeText.textContent = "Welcome to Eszter's Portfolio!";
+
+  nav.removeAttribute("style");
+  list.removeAttribute("style");
+  listItems.forEach((el) => {
+    el.removeAttribute("style");
+  });
+  couch.removeAttribute("style");
+
+  bg.removeAttribute("style");
+  details.forEach((el) => {
+    el.removeAttribute("open");
+  });
+
+  sections.forEach((el) => {
+    el.removeAttribute("style");
+  });
+}
+
+// For projects slides
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.querySelectorAll("#projects > div:not(#computer)");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    // Closing details on project slide
+    details[i].removeAttribute("open");
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "flex";
+  dots[slideIndex - 1].className += " active";
+}
+// var aboutList = document.querySelectorAll("#about li");
+// var initialDelay = 0.5;
+// var delay = 0.15;
+// aboutList.forEach((el, index) => {
+//   el.setAttribute(
+//     "style",
+//     `animation: fade-in 0.3s ${
+//       initialDelay + delay * index
+//     }s ease-in-out forwards`
+//   );
+// });
+// document
+//   .querySelector("#about .buttons a")
+//   .setAttribute(
+//     "style",
+//     `animation: fade-in 0.3s ${
+//       initialDelay + delay * aboutList.length
+//     }s ease-in-out forwards`
+//   );
