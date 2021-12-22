@@ -1,3 +1,4 @@
+var html = document.querySelector("html");
 var links = document.querySelectorAll("nav ul a");
 var texts = document.querySelectorAll("nav li p");
 var homeText = document.querySelector(".home p");
@@ -11,68 +12,88 @@ var bird2 = document.getElementById("bird2");
 var bird3 = document.getElementById("bird3");
 var bird4 = document.getElementById("bird4");
 var bird5 = document.getElementById("bird5");
-var birds = document.querySelectorAll(".birds");
+var birds = document.querySelectorAll(".bird");
 var details = document.querySelectorAll("details");
 var sections = document.querySelectorAll("section");
+var themeButton = document.getElementById("theme");
 var mobile = window.matchMedia("(max-width: 900px)").matches;
-// var pos = {
-//   bird1: {
-//     y: 15,
-//     x: 14,
-//   },
-//   bird2: {
-//     y: 58,
-//     x: 23,
-//   },
-//   bird3: {
-//     y: 63,
-//     x: 28,
-//   },
-//   bird4: {
-//     y: 16,
-//     x: 92,
-//   },
-//   bird5: {
-//     y: 28,
-//     x: 82,
-//   },
-// };
+
+var theme = localStorage.getItem("theme");
+if (theme) {
+  html.classList.toggle("dark");
+}
+
+function changeTheme() {
+  var hash = window.location.hash;
+
+  html.classList.toggle("dark");
+  themeButton.setAttribute("style", "animation: unset;");
+  if (html.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    themeButton.classList.replace("fa-moon", "fa-sun");
+    setTimeout(() => {
+      themeButton.setAttribute(
+        "style",
+        "animation: fade-in 0.5s ease-in-out forwards;"
+      );
+    }, 50);
+    if (hash.length > 0) {
+      document
+        .querySelector("." + hash.substring(1, hash.length) + " > a")
+        .setAttribute(
+          "style",
+          `position: relative;
+           z-index: -2;
+           animation: grow2 1s ease-in-out forwards;`
+        );
+    }
+  } else {
+    localStorage.removeItem("theme");
+    themeButton.classList.replace("fa-sun", "fa-moon");
+    setTimeout(() => {
+      themeButton.setAttribute(
+        "style",
+        "animation: fade-in 0.5s ease-in-out forwards;"
+      );
+    }, 50);
+    if (hash.length > 0) {
+      document
+        .querySelector("." + hash.substring(1, hash.length) + " > a")
+        .setAttribute(
+          "style",
+          `position: relative;
+           z-index: -2;
+           animation: grow 1s ease-in-out forwards;`
+        );
+    }
+  }
+  birds.forEach((el) => {
+    el.src = "/images/star1.svg";
+  });
+}
+themeButton.onclick = () => {
+  changeTheme();
+};
 
 function mouseMoveMethod(e) {
-  // var bgX = (e.pageX * -1) / 20;
-  // var bgY = (e.pageY * -1) / 20;
-  // bg.setAttribute("style", `background-position: ${bgX}px ${bgY}px;`);
-
-  // birds.forEach((el, index) => {
-  //   let i = index + 1;
-  //   el.setAttribute(
-  //     "style",
-  //     `top: calc(${pos["bird" + i]["y"]}% + ${
-  //       (e.pageY * -1 * i ** (1 / 2)) / (50 + i * 10)
-  //     }px); left: calc(${pos["bird" + i]["x"]}% + ${
-  //       (e.pageX * -1 * i ** (1 / 2)) / (50 + i * 10)
-  //     }px);`
-  //   );
-  // });
-
   // Birds move in the opposite direction to the mouse
   var x = e.pageX * -1,
     y = e.pageY * -1;
 
-  var bird1X = x / 380;
-  var bird1Y = y / 350;
+  var bird1X = x / 330;
+  var bird1Y = y / 300;
   bird1.setAttribute("style", `top: ${13 + bird1Y}%; left: ${12 + bird1X}%;`);
-  var bird2X = x / 500;
-  var bird2Y = y / 530;
+  var bird2X = x / 450;
+  var bird2Y = y / 480;
   bird2.setAttribute("style", `top: ${56 + bird2Y}%; left: ${21 + bird2X}%;`);
-  var bird3X = x / 250;
-  var bird3Y = y / 280;
+  var bird3X = x / 200;
+  var bird3Y = y / 230;
   bird3.setAttribute("style", `top: ${61 + bird3Y}%; left: ${25 + bird3X}%;`);
-  var bird4X = x / 580;
-  var bird4Y = y / 550;
+  var bird4X = x / 530;
+  var bird4Y = y / 500;
   bird4.setAttribute("style", `top: ${16 + bird4Y}%; left: ${88 + bird4X}%;`);
-  var bird5X = x / 280;
-  var bird5Y = y / 250;
+  var bird5X = x / 230;
+  var bird5Y = y / 200;
   bird5.setAttribute("style", `top: ${28 + bird5Y}%; left: ${80 + bird5X}%;`);
 }
 document.addEventListener("mousemove", mouseMoveMethod);
@@ -90,6 +111,8 @@ function handleHashChange() {
 handleHashChange();
 
 function select(id) {
+  var dark = html.classList.contains("dark");
+
   var linkWidth = mobile ? "60px" : "120px";
   var linkHeight = mobile ? "40px" : "80px";
   var fontSize = mobile ? "1.1rem" : "1.6rem";
@@ -128,7 +151,7 @@ function select(id) {
     "style",
     `position: relative;
     z-index: -2;
-    animation: grow 1s ease-in-out forwards;`
+    animation: ${dark ? "grow2" : "grow"} 1s ease-in-out forwards;`
   );
 
   // Hiding active nav link text and replacing it

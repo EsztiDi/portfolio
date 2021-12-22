@@ -1,5 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Comfortaa&family=Kaushan+Script&display=swap");
 
+:root {
+  --html-bg: #fff;
+  --filter: none;
+  --filter2: none;
+  --bg: url("/images/bg.svg");
+  --couch: url("/images/couch.svg");
+  --bird1: url("/images/bird1.svg");
+  --bird2: url("/images/bird2.svg");
+  --bird-opacity: 0.6;
+  --cloud-opacity: 1;
+  --computer: url("/images/computer.svg");
+  --hover-color: rgba(141, 141, 141, 0.2);
+  --text: #f8f8ff;
+  --text2: #303030;
+  /* --project-bg: #f8f8ff; */
+  --icon-color: #8d8d8d;
+  --email-color: #be2623;
+  --linkedin-color: #0077b5;
+  --github-color: #24292e;
+}
+.dark {
+  --html-bg: #6276b4;
+  --filter: brightness(0.8);
+  --filter2: brightness(0.95);
+  --bg: url("/images/bg2.svg");
+  --couch: url("/images/couch2.svg");
+  --bird1: url("/images/star1.svg");
+  --bird2: url("/images/star1.svg");
+  --bird-opacity: 0.4;
+  --cloud-opacity: 0.4;
+  --computer: url("/images/computer2.svg");
+  --hover-color: rgba(248, 248, 255, 0.2);
+  --text: #303030;
+  --text2: #f8f8ff;
+  /* --project-bg: #303030; */
+  --icon-color: #f5f5ff;
+  --email-color: #f5f5ff;
+  --linkedin-color: #f5f5ff;
+  --github-color: #f5f5ff;
+}
+
 ::-webkit-scrollbar,
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-corner {
@@ -13,14 +54,22 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #646464;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Comfortaa", cursive;
   color: #303030;
+  color: var(--text2);
+  transition: color 0.3s ease-in-out;
 }
-
+html {
+  background: #f8f8ff;
+  background: var(--html-bg);
+  filter: var(--filter);
+  transition: background 0.3s ease-in-out;
+}
 html,
 body {
   overflow: hidden;
@@ -65,7 +114,9 @@ nav li {
 nav p {
   font-family: "Caveat", cursive;
   color: #f8f8ff;
-  transition: font-weight 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: var(--text);
+  transition: font-weight 0.3s ease-in-out, transform 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 nav li > p {
   position: absolute;
@@ -76,6 +127,7 @@ nav li > p {
   width: 120px;
   height: 80px;
   color: #303030;
+  color: var(--text2);
   font-size: 1.6rem;
   font-weight: bold;
   background-image: url("/images/underline.png");
@@ -89,14 +141,11 @@ nav a {
   justify-content: center;
   font-size: 2.1rem;
   transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
-  /* text-shadow: 1px 1px 2px #303030; */
 }
 nav a:hover {
   animation-play-state: paused;
-  /* text-shadow: 1px 1px 4px #303030; */
 }
 nav a:hover p {
-  /* color: #303030; */
   font-weight: bold;
 }
 .projects a,
@@ -132,42 +181,72 @@ nav a:hover p {
   position: fixed;
   width: 110vw;
   height: 110vh;
-  opacity: 0.6;
+  opacity: 0.8;
   background: linear-gradient(135deg, #58c9ea, #4b4bbf);
   background-image: url("/images/bg.svg");
+  background-image: var(--bg);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  transition: background 0.3s ease-in-out;
 }
-#bg img {
+#bg > * {
   position: absolute;
 }
-.birds {
+.bird {
   opacity: 0.6;
+  opacity: var(--bird-opacity);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: background 0.5s ease-in-out;
+}
+.cloud {
+  opacity: var(--cloud-opacity);
+  transition: opacity 0.5s ease-in-out;
+}
+.bird,
+.cloud {
+  filter: blur(2px);
 }
 #bird1 {
   top: 11%;
   left: 10%;
   width: 75px;
+  height: 23px;
+  background-image: url("/images/bird1.svg");
+  background-image: var(--bird1);
 }
 #bird2 {
   top: 54%;
   left: 19%;
   width: 60px;
+  height: 18.4px;
+  background-image: url("/images/bird1.svg");
+  background-image: var(--bird1);
 }
 #bird3 {
   top: 59%;
   left: 23%;
   width: 80px;
+  height: 22px;
+  background-image: url("/images/bird2.svg");
+  background-image: var(--bird2);
 }
 #bird4 {
   top: 14%;
   left: 86%;
   width: 60px;
+  height: 18.4px;
+  background-image: url("/images/bird1.svg");
+  background-image: var(--bird1);
 }
 #bird5 {
   top: 26%;
   left: 78%;
   width: 70px;
+  height: 19.25px;
+  background-image: url("/images/bird2.svg");
+  background-image: var(--bird2);
 }
 #cloud1 {
   top: 28%;
@@ -195,8 +274,11 @@ nav a:hover p {
   position: relative;
   z-index: -1;
   background-image: url("/images/couch.svg");
+  background-image: var(--couch);
+  filter: var(--filter2);
   width: 50%;
   padding-top: 32%;
+  transition: background 0.5s ease-in-out;
   opacity: 0;
   animation: fade-in 0.5s ease-in-out forwards;
 }
@@ -275,6 +357,15 @@ nav a:hover p {
     opacity: 0.1;
   }
 }
+@keyframes grow2 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(25);
+    filter: brightness(0.8);
+  }
+}
 @keyframes underline {
   0% {
     background-size: 0%;
@@ -298,19 +389,19 @@ nav a:hover p {
 @keyframes cloud1 {
   0%,
   100% {
-    transform: translate(-5px, -10px);
+    transform: translate(-10px, -15px);
   }
   50% {
-    transform: translate(10px, 5px);
+    transform: translate(15px, 10px);
   }
 }
 @keyframes cloud2 {
   0%,
   100% {
-    transform: translate(-10px, 15px);
+    transform: translate(-15px, 20px);
   }
   50% {
-    transform: translate(15px, -10px);
+    transform: translate(20px, -15px);
   }
 }
 
@@ -333,9 +424,6 @@ h1 {
 h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-}
-i {
-  transition: color 0.3s ease-in-out;
 }
 li i,
 footer i {
@@ -376,9 +464,11 @@ footer i {
   margin: 3rem auto 2rem;
   font-size: 1.1rem;
   background: linear-gradient(45deg, #e3a3ed, #785af2);
+  background: linear-gradient(45deg, #8dde96, #26c4bf);
 }
 #about .buttons a:hover {
   background: linear-gradient(225deg, #e3a3ed, #785af2);
+  background: linear-gradient(225deg, #8dde96, #26c4bf);
 }
 #about .buttons i {
   font-size: 1.2rem;
@@ -411,7 +501,12 @@ footer i {
   border: 3px solid #8d8d8d;
   border-radius: 25px;
   background: #f8f8ff;
+  background: var(--text);
+  transition: background 0.5s ease-in-out;
   animation: fade-in 0.6s ease-in-out forwards;
+}
+#projects > div:not(#computer) *:not(.buttons *) {
+  color: var(--text2);
 }
 .carousel-butons {
   display: flex;
@@ -428,6 +523,8 @@ footer i {
   padding-top: 15%;
   margin-top: auto;
   background-image: url("/images/computer.svg");
+  background-image: var(--computer);
+  transition: background 0.5s ease-in-out;
 }
 .prev,
 .next {
@@ -444,11 +541,13 @@ footer i {
 .prev i,
 .next i {
   color: #8d8d8d;
+  color: var(--icon-color);
   font-size: 1.8rem;
 }
 .prev:hover,
 .next:hover {
   background-color: rgba(141, 141, 141, 0.2);
+  background-color: var(--hover-color);
 }
 .prev:hover i,
 .next:hover i {
@@ -535,6 +634,7 @@ details p {
   white-space: nowrap;
   border-radius: 25px;
   color: #f8f8ff;
+  color: var(--text);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -557,6 +657,7 @@ details p {
 .buttons i {
   margin-right: 0.3rem;
   color: #f8f8ff;
+  color: var(--text);
   transition: color 0.3s ease-in-out;
 }
 #projects .buttons a:first-of-type {
@@ -594,17 +695,23 @@ details p {
   column-gap: 0.9rem;
   margin-bottom: 1rem;
 }
+#contact h3 i,
+#contact * {
+  color: var(--text2);
+}
 
 #contact a,
 footer a {
-  transition: font-weight 0.3s ease-in-out;
+  transition: font-weight 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 #contact i {
   font-size: 1.6rem;
+  transition: color 0.3s ease-in-out;
 }
 #contact .fa-external-link-alt {
   font-size: 0.9rem;
   color: #8d8d8d;
+  color: var(--icon-color);
   vertical-align: middle;
 }
 #contact a:hover,
@@ -613,15 +720,19 @@ footer a:hover {
 }
 #contact a:hover i {
   color: #303030;
+  color: var(--text2);
 }
 #email h3 i {
-  color: #f71d69;
+  color: #be2623;
+  color: var(--email-color);
 }
 #linkedin h3 i {
   color: #0077b5;
+  color: var(--linkedin-color);
 }
 #github h3 i {
   color: #24292e;
+  color: var(--github-color);
 }
 #girl3 {
   position: absolute;
@@ -641,9 +752,17 @@ footer {
   font-size: 0.8rem;
   line-height: 1.4;
 }
+footer * {
+  color: var(--text2);
+}
 footer i {
   color: #8d8d8d;
+  color: var(--icon-color);
   font-size: 2.1rem;
+}
+.social {
+  flex-basis: 37%;
+  text-align: left;
 }
 .linkedin {
   margin-left: 1rem;
@@ -653,6 +772,14 @@ footer i {
 }
 .github:hover i {
   color: #24292e;
+}
+#theme {
+  cursor: pointer;
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+#theme:hover {
+  color: #000;
 }
 
 @media screen and (orientation: portrait) {
@@ -776,6 +903,9 @@ footer i {
   .img-container {
     width: 100%;
     padding-top: 50%;
+  }
+  footer {
+    line-height: 1;
   }
   footer i {
     font-size: 1.6rem;

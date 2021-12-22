@@ -16,14 +16,14 @@
   <body onhashchange="handleHashChange()">
     <nav>
       <div id="bg">
-        <img src="/images/bird1.svg" alt="Bird1" id="bird1" class="birds" />
-        <img src="/images/bird1.svg" alt="Bird2" id="bird2" class="birds" />
-        <img src="/images/bird2.svg" alt="Bird3" id="bird3" class="birds" />
-        <img src="/images/bird1.svg" alt="Bird4" id="bird4" class="birds" />
-        <img src="/images/bird2.svg" alt="Bird5" id="bird5" class="birds" />
-        <img src="/images/cloud1.svg" alt="Cloud1" id="cloud1" />
-        <img src="/images/cloud2.svg" alt="Cloud2" id="cloud2" />
-        <img src="/images/cloud3.svg" alt="Cloud3" id="cloud3" />
+        <div id="bird1" class="bird"></div>
+        <div id="bird2" class="bird"></div>
+        <div id="bird3" class="bird"></div>
+        <div id="bird4" class="bird"></div>
+        <div id="bird5" class="bird"></div>
+        <img src="/images/cloud1.svg" alt="Cloud1" id="cloud1" class="cloud" />
+        <img src="/images/cloud2.svg" alt="Cloud2" id="cloud2" class="cloud" />
+        <img src="/images/cloud3.svg" alt="Cloud3" id="cloud3" class="cloud" />
       </div>
       <ul>
         <li class="home">
@@ -63,7 +63,7 @@
           <li>
             <i class="fas fa-code"></i>&nbsp;Have experience with
             <b>&nbsp;React, Next.js, JavaScript, CSS, HTML, Git&nbsp;</b> and
-            more on the way
+            more
           </li>
           <li>
             All <b>&nbsp;self-taught</b>, with the help of online resources and
@@ -114,21 +114,18 @@
                 <span>Material-UI</span>
               </span>
             </p>
-            <p>
-              <strong>Database:</strong> MongoDB Atlas, TMDb API (movie and TV
-              show data)
-            </p>
+            <p><strong>Database:</strong> MongoDB Atlas, TMDb API</p>
             <p><strong>Email API:</strong> MailerSend</p>
           </div>
           <div class="buttons">
             <a
-              href="https://mywatchlists.watch/"
+              href="https://mywatchlists.watch"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-wifi"></i> Live</a
             >
             <a
-              href="https://github.com/EsztiDi/watchlist-app/"
+              href="https://github.com/EsztiDi/watchlist-app"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-code"></i> Code</a
@@ -165,13 +162,13 @@
           </div>
           <div class="buttons">
             <a
-              href="https://etracker.eu.pythonanywhere.com/"
+              href="https://etracker.eu.pythonanywhere.com"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-wifi"></i> Live</a
             >
             <a
-              href="https://github.com/EsztiDi/etracker/"
+              href="https://github.com/EsztiDi/etracker"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-code"></i> Code</a
@@ -209,13 +206,13 @@
           </div>
           <div class="buttons">
             <a
-              href="https://increscendoduo.vercel.app/"
+              href="https://increscendoduo.ml"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-wifi"></i> Live</a
             >
             <a
-              href="https://github.com/EsztiDi/increscendoduo/"
+              href="https://github.com/EsztiDi/increscendoduo"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-code"></i> Code</a
@@ -245,13 +242,13 @@
           </div>
           <div class="buttons">
             <a
-              href="https://vancouver1887.cf/"
+              href="https://vancouver1887.cf"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-wifi"></i> Live</a
             >
             <a
-              href="https://github.com/EsztiDi/map/"
+              href="https://github.com/EsztiDi/map"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fas fa-code"></i> Code</a
@@ -268,8 +265,9 @@
             <details>
               <summary><strong>Goal</strong></summary>
               <p>
-                To create a one-page website with fluid styles that&apos;s only
-                a little over-the-top to showcase my talent.&nbsp;:)
+                To create a one-page website with fluid styles that&apos;s
+                lightweight and only a little over-the-top to showcase my
+                talent.&nbsp;:)
               </p>
             </details>
             <p>
@@ -283,7 +281,10 @@
             <a href="" target="_blank" rel="noopener noreferrer"
               ><i class="fas fa-wifi"></i> Live</a
             >
-            <a href="" target="_blank" rel="noopener noreferrer"
+            <a
+              href="https://github.com/EsztiDi/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fas fa-code"></i> Code</a
             >
           </div>
@@ -356,6 +357,7 @@
           title="GitHub"
           ><i class="fab fa-github"></i
         ></a>
+        <i id="theme" title="Change theme" class="fas fa-moon"></i>
       </div>
       <div>
         <a href="https://iradesign.io" target="_blank" rel="noopener noreferrer"
