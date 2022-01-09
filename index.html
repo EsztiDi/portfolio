@@ -5,13 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Eszter Diana Toth's web developer portfolio"
+      content="Eszter Diana Toth's web developer portfolio."
     />
-    <meta name="theme-color" content="#fff" />
     <title>Eszter Diana Toth</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" />
+
+    <meta name="robots" content="noimageindex, nofollow" />
+
+    <meta property="og:url" content="" key="url" />
+    <meta property="og:title" content="Eszter Diana Toth" key="title" />
+    <meta
+      property="og:description"
+      content="Eszter Diana Toth's web developer portfolio."
+      key="description"
+    />
+    <meta property="og:image" content="/images/girl.svg" key="image" />
+    <meta property="og:image:width" content="512" key="width" />
+    <meta property="og:image:height" content="705" key="height" />
+    <meta property="og:type" content="website" key="type" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f72867" />
+    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
     <link rel="stylesheet" href="/styles/fa-all.css" />
     <link rel="stylesheet" href="/styles/main.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "ProfessionalService",
+        "name": "Eszter Diana Toth",
+        "image": "/images/girl.svg",
+        "logo": "/images/girl.svg",
+        "url": "",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "London",
+          "addressRegion": "Greater London",
+          "postalCode": "E15",
+          "addressCountry": "UK"
+        }
+      }
+    </script>
   </head>
   <body onhashchange="handleHashChange()">
     <nav>
@@ -71,10 +112,10 @@
           </li>
           <li>
             <i class="fas fa-film"></i>&nbsp;Enjoy watching movies and series
-            (Marvel fan), travelling, dancing
+            (MCU fan), travelling, dancing
           </li>
           <li>
-            Born in Hungary, currently based in London&nbsp;<i
+            Born in Hungary &rarr; UK resident&nbsp;<i
               class="fas fa-globe-americas"
             ></i>
           </li>
@@ -95,17 +136,40 @@
           </div>
           <div class="details">
             <p>
-              A web app to create watchlists for movies and TV shows with a
-              &quot;share to edit&quot; option, weekly releases summary email,
-              episode tracking and calendar view.
+              A web app to create watchlists for movies and TV shows that are
+              easy to manage and have a &quot;share to edit&quot; option for
+              movie night planning, weekly releases summary email, episode
+              tracking and calendar view.
             </p>
             <details>
-              <summary><strong>Goal</strong></summary>
-              <p>
-                To have watchlists that are easy to edit and can be shared,
-                edited with others to plan movie nights. All added features are
-                based on feedback and personal preference.
-              </p>
+              <summary><strong>Solution</strong></summary>
+              <ol>
+                <li>
+                  Used third-party API (TMDb) for fetching the various movie and
+                  TV show information.
+                </li>
+                <li>
+                  Used Next.js for React server-side rendering to allow crawling
+                  of pages when sharing lists on social media and for Google
+                  indexing.
+                </li>
+                <li>
+                  Stale-while-revalidate hook helps keep data refreshed for
+                  shared editing.
+                </li>
+                <li>
+                  Modern, clean and responsive design for easy navigation using
+                  Material-UI components and hooks.
+                </li>
+                <li>
+                  Deployed on Vercel with a cloud database on MongoDB Atlas.
+                </li>
+                <li>
+                  GitHub Actions are set up for daily database updates and for
+                  sending the weekly summary email with Vercel&apos;s serverless
+                  functions.
+                </li>
+              </ol>
             </details>
             <p>
               <strong>Tech:</strong>
@@ -139,16 +203,35 @@
           </div>
           <div class="details">
             <p>
-              An online issue tracker with authentication and user groups. Guest
-              login username:&nbsp;Guest, password:&nbsp;GuestLogin987
+              An online issue tracker with authentication, user groups, comments
+              per ticket and a user-friendly interface.<br />Guest login -
+              username:&nbsp;Guest&nbsp;| password:&nbsp;GuestLogin987
             </p>
-            <!-- <p>Guest login - username: Guest, password: GuestLogin987</p> -->
             <details>
-              <summary><strong>Goal</strong></summary>
-              <p>
-                To try Django and to create a web app that I can use to track
-                future projects.
-              </p>
+              <summary><strong>Solution</strong></summary>
+              <ol>
+                <li>
+                  Backend is set up using Django with its automated admin
+                  interface and DB Browser for SQLite.
+                </li>
+                <li>
+                  Only users of the same group can see, follow and comment on
+                  each others&apos; tickets.
+                </li>
+                <li>
+                  Front-end is built with the help of Django&apos;s template
+                  syntax, CSS and jQuery.
+                </li>
+                <li>
+                  Compact dashboard with drag and drop and dark theme
+                  customisation. Details appear in slide-down panel and easy
+                  editing is possible through iframe.
+                </li>
+                <li>
+                  Theme preference and dashboard positions are saved in the
+                  browser&apos;s localStorage.
+                </li>
+              </ol>
             </details>
             <p>
               <strong>Tech:</strong>
@@ -185,21 +268,40 @@
           </div>
           <div class="details">
             <p>
-              Portfolio website for the instrumental duo, In Crescendo Duo,
-              based in Copenhagen.
+              A responsive and lightweight portfolio website for the
+              instrumental duo, In Crescendo Duo, based in Copenhagen.
             </p>
             <details>
-              <summary><strong>Goal</strong></summary>
-              <p>
-                To create a clean, straightforward portfolio website according
-                to the clients&apos; needs and feedback.
-              </p>
+              <summary><strong>Solution</strong></summary>
+              <ol>
+                <li>
+                  Used PHP to create template partials for the multi-page design
+                  to avoid repeating code.
+                </li>
+                <li>
+                  Clear, straightforward layout for ease of use and optimised
+                  images for fast loading.
+                </li>
+                <li>
+                  Animations and transitions using only CSS and jQuery for wide
+                  browser compatibility.
+                </li>
+                <li>
+                  Deployed on a simple web hosting platform then connected to
+                  Cloudflare for security.
+                </li>
+                <li>
+                  Added CushyCMS for client-side content management and kept in
+                  touch throughout development to confirm that all elements are
+                  in line with their needs.
+                </li>
+              </ol>
             </details>
             <p>
               <strong>Tech:</strong>
               <span class="tech">
-                <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
-                <span>jQuery</span></span
+                <span>HTML</span> <span>PHP</span> <span>CSS</span>
+                <span>JavaScript</span> <span>jQuery</span></span
               >
             </p>
             <p><strong>CMS:</strong> CushyCMS</p>
@@ -225,13 +327,26 @@
             <img src="/images/vancouver1887.jpg" alt="Vancouver 1887 Image" />
           </div>
           <div class="details">
-            <p>One-page interactive map for a friend&apos;s RPG game.</p>
+            <p>
+              A one-page interactive map for a friend&apos;s RPG game that can
+              be used by the group while playing through video chat.
+            </p>
             <details>
-              <summary><strong>Goal</strong></summary>
-              <p>
-                To create an interactive map that is accessible to a group
-                playing through video chat.
-              </p>
+              <summary><strong>Solution</strong></summary>
+              <ol>
+                <li>
+                  Created a function to print the relative positions on the
+                  console when clicking on the map to help add the locations and
+                  their name.
+                </li>
+                <li>
+                  Responsive design for both mobile and desktop compatibility.
+                </li>
+                <li>
+                  Deployed on a simple web hosting platform then connected to
+                  Cloudflare for security.
+                </li>
+              </ol>
             </details>
             <p>
               <strong>Tech:</strong>
@@ -261,14 +376,27 @@
             <img src="/images/portfolio.jpg" alt="Portfolio Image" />
           </div>
           <div class="details">
-            <p>My professional portfolio. (Portfolioception.)</p>
+            <p>
+              My personal one-page portfolio website that&apos;s lightweight and
+              only a little over-the-top to showcase my talent.
+              (Portfolioception.)&nbsp;:)
+            </p>
             <details>
-              <summary><strong>Goal</strong></summary>
-              <p>
-                To create a one-page website with fluid styles that&apos;s
-                lightweight and only a little over-the-top to showcase my
-                talent.&nbsp;:)
-              </p>
+              <summary><strong>Solution</strong></summary>
+              <ol>
+                <li>Onhashchange transition for multi-page effect.</li>
+                <li>
+                  Fluid and responsive design using only CSS, JS, Google Fonts
+                  and Font Awesome.
+                </li>
+                <li>
+                  Dark theme option for user customisation and preference saved
+                  in browser&apos;s localStorage.
+                </li>
+                <li>
+                  Deployed on Cloudflare Pages for a reliable, secure solution.
+                </li>
+              </ol>
             </details>
             <p>
               <strong>Tech:</strong>

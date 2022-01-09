@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /images/girl.svg
+Disallow: /images/
+Disallow: /webfonts/

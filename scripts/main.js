@@ -21,6 +21,7 @@ var mobile = window.matchMedia("(max-width: 900px)").matches;
 var theme = localStorage.getItem("theme");
 if (theme) {
   html.classList.toggle("dark");
+  themeButton.classList.replace("fa-moon", "fa-sun");
 }
 
 function changeTheme() {
@@ -83,11 +84,11 @@ function mouseMoveMethod(e) {
   var bird1X = x / 330;
   var bird1Y = y / 300;
   bird1.setAttribute("style", `top: ${13 + bird1Y}%; left: ${12 + bird1X}%;`);
-  var bird2X = x / 450;
-  var bird2Y = y / 480;
+  var bird2X = x / 480;
+  var bird2Y = y / 450;
   bird2.setAttribute("style", `top: ${56 + bird2Y}%; left: ${21 + bird2X}%;`);
-  var bird3X = x / 200;
-  var bird3Y = y / 230;
+  var bird3X = x / 230;
+  var bird3Y = y / 200;
   bird3.setAttribute("style", `top: ${61 + bird3Y}%; left: ${25 + bird3X}%;`);
   var bird4X = x / 530;
   var bird4Y = y / 500;

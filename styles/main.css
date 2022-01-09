@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Comfortaa&family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@500;700&family=Kaushan+Script&display=swap");
 
 :root {
   --html-bg: #fff;
@@ -14,7 +14,6 @@
   --hover-color: rgba(141, 141, 141, 0.2);
   --text: #f8f8ff;
   --text2: #303030;
-  /* --project-bg: #f8f8ff; */
   --icon-color: #8d8d8d;
   --email-color: #be2623;
   --linkedin-color: #0077b5;
@@ -22,7 +21,7 @@
 }
 .dark {
   --html-bg: #6276b4;
-  --filter: brightness(0.8);
+  --filter: brightness(0.9);
   --filter2: brightness(0.95);
   --bg: url("/images/bg2.svg");
   --couch: url("/images/couch2.svg");
@@ -34,7 +33,6 @@
   --hover-color: rgba(248, 248, 255, 0.2);
   --text: #303030;
   --text2: #f8f8ff;
-  /* --project-bg: #303030; */
   --icon-color: #f5f5ff;
   --email-color: #f5f5ff;
   --linkedin-color: #f5f5ff;
@@ -59,10 +57,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Comfortaa", cursive;
+  font-family: "Quicksand", cursive, sans-serif;
   color: #303030;
   color: var(--text2);
   transition: color 0.3s ease-in-out;
+  scrollbar-width: thin;
 }
 html {
   background: #f8f8ff;
@@ -363,7 +362,8 @@ nav a:hover p {
   }
   100% {
     transform: scale(25);
-    filter: brightness(0.8);
+    filter: brightness(0.9);
+    filter: var(--filter);
   }
 }
 @keyframes underline {
@@ -493,7 +493,7 @@ footer i {
 #projects > div:not(#computer) {
   display: none;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: 900px;
   margin: auto;
@@ -579,9 +579,9 @@ footer i {
   position: relative;
   width: 44%;
   padding-top: 22%;
-  margin: 0 2% 1rem 0;
+  margin: 0.4rem 2% 1rem 0;
   background: #8d8d8d;
-  border: 1px solid #8d8d8d;
+  border: 0.5px solid #8d8d8d;
   border-radius: 2px;
 }
 .img-container img {
@@ -616,7 +616,8 @@ summary {
   cursor: pointer;
   width: fit-content;
 }
-details p {
+details ol {
+  list-style: decimal inside;
   opacity: 0;
   animation: fade-in 0.5s ease-in-out forwards;
 }
@@ -758,7 +759,7 @@ footer * {
 footer i {
   color: #8d8d8d;
   color: var(--icon-color);
-  font-size: 2.1rem;
+  font-size: 2rem;
 }
 .social {
   flex-basis: 37%;
@@ -778,8 +779,11 @@ footer i {
   opacity: 0;
   animation: fade-in 0.5s ease-in-out forwards;
 }
-#theme:hover {
+.fa-moon:hover {
   color: #000;
+}
+.fa-sun:hover {
+  color: #f8c547;
 }
 
 @media screen and (orientation: portrait) {
