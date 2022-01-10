@@ -1,3 +1,10 @@
+// Register service worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js").then(() => {
+    console.log("Service Worker Registered");
+  });
+}
+
 var html = document.querySelector("html");
 var links = document.querySelectorAll("nav ul a");
 var texts = document.querySelectorAll("nav li p");
@@ -16,24 +23,27 @@ var birds = document.querySelectorAll(".bird");
 var details = document.querySelectorAll("details");
 var sections = document.querySelectorAll("section");
 var themeButton = document.getElementById("theme");
+var themeIcon = document.querySelector("#theme i");
 var mobile = window.matchMedia("(max-width: 900px)").matches;
 
 var theme = localStorage.getItem("theme");
 if (theme) {
   html.classList.toggle("dark");
-  themeButton.classList.replace("fa-moon", "fa-sun");
+  themeButton.setAttribute("aria-pressed", true);
+  themeIcon.classList.replace("fa-moon", "fa-sun");
 }
 
 function changeTheme() {
   var hash = window.location.hash;
 
   html.classList.toggle("dark");
-  themeButton.setAttribute("style", "animation: unset;");
+  themeIcon.setAttribute("style", "animation: unset;");
   if (html.classList.contains("dark")) {
     localStorage.setItem("theme", "dark");
-    themeButton.classList.replace("fa-moon", "fa-sun");
+    themeButton.setAttribute("aria-pressed", true);
+    themeIcon.classList.replace("fa-moon", "fa-sun");
     setTimeout(() => {
-      themeButton.setAttribute(
+      themeIcon.setAttribute(
         "style",
         "animation: fade-in 0.5s ease-in-out forwards;"
       );
@@ -50,9 +60,10 @@ function changeTheme() {
     }
   } else {
     localStorage.removeItem("theme");
-    themeButton.classList.replace("fa-sun", "fa-moon");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+    themeButton.setAttribute("aria-pressed", false);
     setTimeout(() => {
-      themeButton.setAttribute(
+      themeIcon.setAttribute(
         "style",
         "animation: fade-in 0.5s ease-in-out forwards;"
       );
@@ -110,6 +121,7 @@ function handleHashChange() {
   }
 }
 handleHashChange();
+window.addEventListener("hashchange", handleHashChange);
 
 function select(id) {
   var dark = html.classList.contains("dark");
@@ -123,6 +135,8 @@ function select(id) {
       "style",
       `font-size: ${fontSize};  width: ${linkWidth}; height: ${linkHeight}; z-index: 2; animation: unset;`
     );
+    el.removeAttribute("aria-hidden");
+    el.removeAttribute("tabindex");
     el.firstElementChild.removeAttribute("style");
   });
 
@@ -154,6 +168,8 @@ function select(id) {
     z-index: -2;
     animation: ${dark ? "grow2" : "grow"} 1s ease-in-out forwards;`
   );
+  link.setAttribute("aria-hidden", true);
+  link.setAttribute("tabindex", -1);
 
   // Hiding active nav link text and replacing it
   var text = document.querySelector("." + id + " p");
@@ -208,6 +224,8 @@ function select(id) {
 function reset() {
   links.forEach((el) => {
     el.removeAttribute("style");
+    el.removeAttribute("aria-hidden");
+    el.removeAttribute("tabindex");
     el.firstElementChild.removeAttribute("style");
   });
 
@@ -249,10 +267,20 @@ function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
+var prev = document.getElementById("prev");
+prev.addEventListener("click", () => plusSlides(-1));
+var next = document.getElementById("next");
+next.addEventListener("click", () => plusSlides(1));
+var dots = document.querySelectorAll(".dot");
+dots.forEach((el, i) =>
+  el.addEventListener("click", () => currentSlide(i + 1))
+);
+
 function showSlides(n) {
   var i;
   var slides = document.querySelectorAll("#projects > div:not(#computer)");
-  var dots = document.getElementsByClassName("dot");
+  var dots = document.querySelectorAll(".dot");
+
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -270,22 +298,34 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "flex";
   dots[slideIndex - 1].className += " active";
 }
-// var aboutList = document.querySelectorAll("#about li");
-// var initialDelay = 0.5;
-// var delay = 0.15;
-// aboutList.forEach((el, index) => {
-//   el.setAttribute(
-//     "style",
-//     `animation: fade-in 0.3s ${
-//       initialDelay + delay * index
-//     }s ease-in-out forwards`
-//   );
-// });
-// document
-//   .querySelector("#about .buttons a")
-//   .setAttribute(
-//     "style",
-//     `animation: fade-in 0.3s ${
-//       initialDelay + delay * aboutList.length
-//     }s ease-in-out forwards`
-//   );
+
+// Swipe events for projects
+var touchstartX = 0;
+var touchendX = 0;
+var slides = document.querySelectorAll("#projects > div:not(#computer)");
+
+function handleGesture() {
+  if (touchendX < touchstartX) plusSlides(1);
+  if (touchendX > touchstartX) plusSlides(-1);
+}
+
+slides.forEach((el) => {
+  el.addEventListener(
+    "touchstart",
+    (e) => {
+      touchstartX = e.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
+});
+
+slides.forEach((el) => {
+  el.addEventListener(
+    "touchend",
+    (e) => {
+      touchendX = e.changedTouches[0].screenX;
+      handleGesture();
+    },
+    { passive: true }
+  );
+});

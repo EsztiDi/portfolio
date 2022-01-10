@@ -443,7 +443,7 @@ footer i {
 }
 #about li i {
   margin: 0 0.9rem;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 .fa-desktop {
   color: #26c4bf;
@@ -526,8 +526,13 @@ footer i {
   background-image: var(--computer);
   transition: background 0.5s ease-in-out;
 }
-.prev,
-.next {
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+#prev,
+#next {
   display: inline-grid;
   place-items: center;
   width: 50px;
@@ -535,22 +540,21 @@ footer i {
   margin-top: -30px;
   border-radius: 50%;
   user-select: none;
-  cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-.prev i,
-.next i {
+#prev i,
+#next i {
   color: #8d8d8d;
   color: var(--icon-color);
   font-size: 1.8rem;
 }
-.prev:hover,
-.next:hover {
+#prev:hover,
+#next:hover {
   background-color: rgba(141, 141, 141, 0.2);
   background-color: var(--hover-color);
 }
-.prev:hover i,
-.next:hover i {
+#prev:hover i,
+#next:hover i {
   color: #303030;
 }
 .dots {
@@ -694,6 +698,7 @@ details ol {
   align-items: center;
   justify-content: center;
   column-gap: 0.9rem;
+  line-height: 1;
   margin-bottom: 1rem;
 }
 #contact h3 i,
@@ -743,11 +748,11 @@ footer a:hover {
   bottom: 4rem;
 }
 footer {
-  position: relative;
+  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
+  /* margin-top: auto; */
   padding: 0.5rem;
   text-align: right;
   font-size: 0.8rem;
@@ -774,8 +779,7 @@ footer i {
 .github:hover i {
   color: #24292e;
 }
-#theme {
-  cursor: pointer;
+#theme i {
   opacity: 0;
   animation: fade-in 0.5s ease-in-out forwards;
 }
@@ -801,6 +805,7 @@ footer i {
   #couch {
     width: 95%;
     padding-top: 60.83%;
+    margin-top: 2rem;
   }
   #girl2 {
     position: relative;
@@ -904,6 +909,12 @@ footer i {
   }
 }
 @media screen and (max-width: 640px) {
+  section {
+    height: calc(100vh - 60px - 42px);
+  }
+  #projects {
+    padding: 1rem 2%;
+  }
   .img-container {
     width: 100%;
     padding-top: 50%;

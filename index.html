@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self'; object-src 'none'"
+    />
+    <meta
       name="description"
       content="Eszter Diana Toth's web developer portfolio."
     />
     <title>Eszter Diana Toth</title>
 
-    <meta name="robots" content="noimageindex, nofollow" />
+    <meta name="robots" content="noimageindex" />
 
     <meta property="og:url" content="" key="url" />
     <meta property="og:title" content="Eszter Diana Toth" key="title" />
@@ -18,31 +22,45 @@
       content="Eszter Diana Toth's web developer portfolio."
       key="description"
     />
-    <meta property="og:image" content="/images/girl.svg" key="image" />
+    <meta property="og:image" content="./images/girl.svg" key="image" />
     <meta property="og:image:width" content="512" key="width" />
     <meta property="og:image:height" content="705" key="height" />
     <meta property="og:type" content="website" key="type" />
     <meta name="twitter:card" content="summary" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f72867" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#f72867" />
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="./favicon.ico" />
 
-    <link rel="stylesheet" href="/styles/fa-all.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="./styles/fa-all.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org/",
         "@type": "ProfessionalService",
         "name": "Eszter Diana Toth",
-        "image": "/images/girl.svg",
-        "logo": "/images/girl.svg",
+        "image": "./images/girl.svg",
+        "logo": "./images/girl.svg",
         "url": "",
         "address": {
           "@type": "PostalAddress",
@@ -54,7 +72,7 @@
       }
     </script>
   </head>
-  <body onhashchange="handleHashChange()">
+  <body>
     <nav>
       <div id="bg">
         <div id="bird1" class="bird"></div>
@@ -62,9 +80,9 @@
         <div id="bird3" class="bird"></div>
         <div id="bird4" class="bird"></div>
         <div id="bird5" class="bird"></div>
-        <img src="/images/cloud1.svg" alt="Cloud1" id="cloud1" class="cloud" />
-        <img src="/images/cloud2.svg" alt="Cloud2" id="cloud2" class="cloud" />
-        <img src="/images/cloud3.svg" alt="Cloud3" id="cloud3" class="cloud" />
+        <img src="./images/cloud1.svg" alt="" id="cloud1" class="cloud" />
+        <img src="./images/cloud2.svg" alt="" id="cloud2" class="cloud" />
+        <img src="./images/cloud3.svg" alt="" id="cloud3" class="cloud" />
       </div>
       <ul>
         <li class="home">
@@ -86,9 +104,9 @@
         </li>
       </ul>
       <div id="couch" class="contain">
-        <img src="/images/girl.svg" alt="Girl" id="girl" />
-        <img src="/images/cup.svg" alt="Cup" id="cup" />
-        <img src="/images/bag.svg" alt="Bag" id="bag" />
+        <img src="./images/girl.svg" alt="" id="girl" />
+        <img src="./images/cup.svg" alt="" id="cup" />
+        <img src="./images/bag.svg" alt="" id="bag" />
       </div>
     </nav>
 
@@ -125,14 +143,14 @@
             >Download CV <i class="fas fa-download"></i
           ></a>
         </div>
-        <img id="girl2" src="/images/girl2.svg" alt="Girl" />
+        <img id="girl2" src="./images/girl2.svg" alt="" />
       </section>
 
       <section id="projects">
         <div>
           <h2>The Watchlist App</h2>
           <div class="img-container">
-            <img src="/images/watchlistapp.jpg" alt="Watchlist App Image" />
+            <img src="./images/watchlistapp.jpg" alt="" />
           </div>
           <div class="details">
             <p>
@@ -199,7 +217,7 @@
         <div>
           <h2>ETracker</h2>
           <div class="img-container">
-            <img src="/images/etracker.jpg" alt="ETracker Image" />
+            <img src="./images/etracker.jpg" alt="" />
           </div>
           <div class="details">
             <p>
@@ -261,10 +279,7 @@
         <div>
           <h2>In Crescendo Duo</h2>
           <div class="img-container">
-            <img
-              src="/images/increscendoduo.jpg"
-              alt="In Crescendo Duo Image"
-            />
+            <img src="./images/increscendoduo.jpg" alt="" />
           </div>
           <div class="details">
             <p>
@@ -324,7 +339,7 @@
         <div>
           <h2>Vancouver 1887</h2>
           <div class="img-container">
-            <img src="/images/vancouver1887.jpg" alt="Vancouver 1887 Image" />
+            <img src="./images/vancouver1887.jpg" alt="" />
           </div>
           <div class="details">
             <p>
@@ -373,7 +388,7 @@
         <div>
           <h2>My Portfolio</h2>
           <div class="img-container">
-            <img src="/images/portfolio.jpg" alt="Portfolio Image" />
+            <img src="./images/portfolio.jpg" alt="" />
           </div>
           <div class="details">
             <p>
@@ -418,20 +433,20 @@
           </div>
         </div>
         <span class="carousel-butons">
-          <a class="prev" onclick="plusSlides(-1)"
-            ><i class="fas fa-chevron-left"></i
-          ></a>
+          <button id="prev" aria-label="Previous project">
+            <i class="fas fa-chevron-left"></i>
+          </button>
           <div id="computer" class="contain">
             <span class="dots">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
-              <span class="dot" onclick="currentSlide(4)"></span>
-              <span class="dot" onclick="currentSlide(5)"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
             </span>
           </div>
-          <a class="next" onclick="plusSlides(1)"
-            ><i class="fas fa-chevron-right"></i></a
+          <button id="next" aria-label="Next project">
+            <i class="fas fa-chevron-right"></i></button
         ></span>
       </section>
 
@@ -464,7 +479,7 @@
             >EsztiDi <i class="fas fa-external-link-alt"></i
           ></a>
         </div>
-        <img id="girl3" src="/images/girl3.svg" alt="Girl" />
+        <img id="girl3" src="./images/girl3.svg" alt="" />
       </section>
     </main>
     <footer>
@@ -485,7 +500,14 @@
           title="GitHub"
           ><i class="fab fa-github"></i
         ></a>
-        <i id="theme" title="Change theme" class="fas fa-moon"></i>
+        <button
+          id="theme"
+          title="Change theme"
+          aria-label="Toggle dark theme"
+          aria-pressed="false"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
       </div>
       <div>
         <a href="https://iradesign.io" target="_blank" rel="noopener noreferrer"
@@ -494,6 +516,6 @@
         <p>Copyright &copy; 2021-, Eszter Diana Toth</p>
       </div>
     </footer>
-    <script src="/scripts/main.js"></script>
+    <script src="./scripts/main.js"></script>
   </body>
 </html>
