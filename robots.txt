@@ -1,6 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
 
 User-agent: *
-Allow: /images/cover.png
+Allow: /images/cover.jpg
+Disallow: /docs/
 Disallow: /images/
 Disallow: /webfonts/
