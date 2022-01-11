@@ -25,16 +25,17 @@ self.addEventListener("install", (e) => {
           "/images/couch.svg",
           "/images/couch2.svg",
           "/images/cup.svg",
-          "/images/etracker.jpg",
+          "/images/etracker.webp",
           "/images/girl.svg",
           "/images/girl2.svg",
           "/images/girl3.svg",
-          "/images/increscendoduo.jpg",
-          "/images/portfolio.jpg",
+          "/images/increscendoduo.webp",
+          "/images/portfolio.webp",
           "/images/star1.svg",
           "/images/underline.png",
-          "/images/vancouver1887.jpg",
-          "/images/watchlistapp.jpg",
+          "/images/vancouver1887.webp",
+          "/images/watchlistapp.webp",
+          "/docs/Eszter_Diana_Toth_CV.pdf",
         ])
       )
   );
@@ -46,17 +47,14 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(
     caches.open("eszter-portfolio").then((cache) => {
       return cache.match(e.request).then((response) => {
-        return (
-          // response ||
-          fetch(e.request)
-            .then((res) => {
-              cache.put(e.request, res.clone());
-              return res;
-            })
-            .catch(() => {
-              return response;
-            })
-        );
+        return fetch(e.request)
+          .then((res) => {
+            cache.put(e.request, res.clone());
+            return res;
+          })
+          .catch(() => {
+            return response;
+          });
       });
     })
   );

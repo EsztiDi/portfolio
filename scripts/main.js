@@ -258,7 +258,7 @@ function reset() {
 
 // For projects slides
 var slideIndex = 1;
-var slides = document.querySelectorAll("#projects > div:not(#computer)");
+var slides = document.querySelectorAll("#projects > div");
 var dots = document.querySelectorAll(".dot");
 showSlides(slideIndex);
 
@@ -278,7 +278,6 @@ prev.addEventListener("click", () => plusSlides(-1));
 var next = document.getElementById("next");
 next.addEventListener("click", () => plusSlides(1));
 
-// var dots = document.querySelectorAll(".dot");
 dots.forEach((el, i) =>
   el.addEventListener("click", () => currentSlide(i + 1))
 );
@@ -306,12 +305,10 @@ function showSlides(n) {
 // To handle swipe events on projects
 var touchstartX = 0;
 var touchendX = 0;
-// var slides = document.querySelectorAll("#projects > div:not(#computer)");
 
 function handleGesture() {
-  console.log(touchstartX, touchendX);
-  if (touchendX + 100 < touchstartX) plusSlides(1);
-  if (touchendX - 100 > touchstartX) plusSlides(-1);
+  if (touchendX + 50 < touchstartX) plusSlides(1);
+  if (touchendX - 50 > touchstartX) plusSlides(-1);
 }
 
 slides.forEach((el) => {
