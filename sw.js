@@ -12,6 +12,29 @@ self.addEventListener("install", (e) => {
           "/scripts/main.js",
           "/styles/main.css",
           "/styles/fa-all.css",
+          "/images/bag.svg",
+          "/images/bg.svg",
+          "/images/bg2.svg",
+          "/images/bird1.svg",
+          "/images/bird2.svg",
+          "/images/cloud1.svg",
+          "/images/cloud2.svg",
+          "/images/cloud3.svg",
+          "/images/computer.svg",
+          "/images/computer2.svg",
+          "/images/couch.svg",
+          "/images/couch2.svg",
+          "/images/cup.svg",
+          "/images/etracker.jpg",
+          "/images/girl.svg",
+          "/images/girl2.svg",
+          "/images/girl3.svg",
+          "/images/increscendoduo.jpg",
+          "/images/portfolio.jpg",
+          "/images/star1.svg",
+          "/images/underline.png",
+          "/images/vancouver1887.jpg",
+          "/images/watchlistapp.jpg",
         ])
       )
   );
@@ -26,9 +49,9 @@ self.addEventListener("fetch", (e) => {
         return (
           // response ||
           fetch(e.request)
-            .then((response) => {
-              cache.put(e.request, response.clone());
-              return response;
+            .then((res) => {
+              cache.put(e.request, res.clone());
+              return res;
             })
             .catch(() => {
               return response;

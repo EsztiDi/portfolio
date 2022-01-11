@@ -748,11 +748,9 @@ footer a:hover {
   bottom: 4rem;
 }
 footer {
-  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-top: auto; */
   padding: 0.5rem;
   text-align: right;
   font-size: 0.8rem;
@@ -805,7 +803,6 @@ footer i {
   #couch {
     width: 95%;
     padding-top: 60.83%;
-    margin-top: 2rem;
   }
   #girl2 {
     position: relative;
@@ -820,7 +817,11 @@ footer i {
     width: 30%;
   }
 }
-
+@media screen and (min-width: 390px) {
+  #couch {
+    margin-top: 2rem;
+  }
+}
 @media screen and (max-width: 900px) {
   nav ul {
     padding: 20px 0.5rem;
@@ -928,5 +929,26 @@ footer i {
   }
   .linkedin {
     margin-left: 0;
+  }
+}
+@media screen and (min-width: 2560px) {
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(40);
+      opacity: 0.1;
+    }
+  }
+  @keyframes grow2 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(40);
+      filter: brightness(0.9);
+      filter: var(--filter);
+    }
   }
 }

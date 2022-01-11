@@ -6,25 +6,8 @@ if ("serviceWorker" in navigator) {
 }
 
 var html = document.querySelector("html");
-var links = document.querySelectorAll("nav ul a");
-var texts = document.querySelectorAll("nav li p");
-var homeText = document.querySelector(".home p");
-var nav = document.querySelector("nav");
-var list = document.querySelector("nav ul");
-var listItems = document.querySelectorAll("nav li");
-var couch = document.getElementById("couch");
-var bg = document.getElementById("bg");
-var bird1 = document.getElementById("bird1");
-var bird2 = document.getElementById("bird2");
-var bird3 = document.getElementById("bird3");
-var bird4 = document.getElementById("bird4");
-var bird5 = document.getElementById("bird5");
-var birds = document.querySelectorAll(".bird");
-var details = document.querySelectorAll("details");
-var sections = document.querySelectorAll("section");
 var themeButton = document.getElementById("theme");
 var themeIcon = document.querySelector("#theme i");
-var mobile = window.matchMedia("(max-width: 900px)").matches;
 
 var theme = localStorage.getItem("theme");
 if (theme) {
@@ -32,6 +15,8 @@ if (theme) {
   themeButton.setAttribute("aria-pressed", true);
   themeIcon.classList.replace("fa-moon", "fa-sun");
 }
+
+var birds = document.querySelectorAll(".bird");
 
 function changeTheme() {
   var hash = window.location.hash;
@@ -83,12 +68,17 @@ function changeTheme() {
     el.src = "/images/star1.svg";
   });
 }
-themeButton.onclick = () => {
-  changeTheme();
-};
 
+themeButton.addEventListener("click", changeTheme);
+
+var bird1 = document.getElementById("bird1");
+var bird2 = document.getElementById("bird2");
+var bird3 = document.getElementById("bird3");
+var bird4 = document.getElementById("bird4");
+var bird5 = document.getElementById("bird5");
+
+// To move birds in the opposite direction to the mouse on the landing page
 function mouseMoveMethod(e) {
-  // Birds move in the opposite direction to the mouse
   var x = e.pageX * -1,
     y = e.pageY * -1;
 
@@ -108,7 +98,19 @@ function mouseMoveMethod(e) {
   var bird5Y = y / 200;
   bird5.setAttribute("style", `top: ${28 + bird5Y}%; left: ${80 + bird5X}%;`);
 }
+
 document.addEventListener("mousemove", mouseMoveMethod);
+
+var links = document.querySelectorAll("nav ul a");
+var texts = document.querySelectorAll("nav li p");
+var homeText = document.querySelector(".home p");
+var nav = document.querySelector("nav");
+var list = document.querySelector("nav ul");
+var listItems = document.querySelectorAll("nav li");
+var couch = document.getElementById("couch");
+var bg = document.getElementById("bg");
+var details = document.querySelectorAll("details");
+var sections = document.querySelectorAll("section");
 
 function handleHashChange() {
   var hash = window.location.hash;
@@ -125,6 +127,7 @@ window.addEventListener("hashchange", handleHashChange);
 
 function select(id) {
   var dark = html.classList.contains("dark");
+  var mobile = window.matchMedia("(max-width: 900px)").matches;
 
   var linkWidth = mobile ? "60px" : "120px";
   var linkHeight = mobile ? "40px" : "80px";
@@ -255,6 +258,8 @@ function reset() {
 
 // For projects slides
 var slideIndex = 1;
+var slides = document.querySelectorAll("#projects > div:not(#computer)");
+var dots = document.querySelectorAll(".dot");
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -262,25 +267,24 @@ function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
-// Thumbnail image controls
+// Thumbnail dots controls
 function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
 var prev = document.getElementById("prev");
 prev.addEventListener("click", () => plusSlides(-1));
+
 var next = document.getElementById("next");
 next.addEventListener("click", () => plusSlides(1));
-var dots = document.querySelectorAll(".dot");
+
+// var dots = document.querySelectorAll(".dot");
 dots.forEach((el, i) =>
   el.addEventListener("click", () => currentSlide(i + 1))
 );
 
 function showSlides(n) {
   var i;
-  var slides = document.querySelectorAll("#projects > div:not(#computer)");
-  var dots = document.querySelectorAll(".dot");
-
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -299,14 +303,15 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-// Swipe events for projects
+// To handle swipe events on projects
 var touchstartX = 0;
 var touchendX = 0;
-var slides = document.querySelectorAll("#projects > div:not(#computer)");
+// var slides = document.querySelectorAll("#projects > div:not(#computer)");
 
 function handleGesture() {
-  if (touchendX < touchstartX) plusSlides(1);
-  if (touchendX > touchstartX) plusSlides(-1);
+  console.log(touchstartX, touchendX);
+  if (touchendX + 100 < touchstartX) plusSlides(1);
+  if (touchendX - 100 > touchstartX) plusSlides(-1);
 }
 
 slides.forEach((el) => {
