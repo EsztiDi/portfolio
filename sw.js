@@ -49,7 +49,7 @@ self.addEventListener("fetch", (e) => {
       return cache.match(e.request).then((response) => {
         return fetch(e.request)
           .then((res) => {
-            cache.put(e.request, res.clone());
+            if (e.request?.method === "GET") cache.put(e.request, res.clone());
             return res;
           })
           .catch(() => {
