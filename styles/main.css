@@ -369,24 +369,24 @@ nav a:hover p {
   left: 43%;
   width: 17%;
   opacity: 0;
-  -webkit-animation: fade-in 1s 0.4s ease-in-out forwards;
-  animation: fade-in 1s 0.4s ease-in-out forwards;
+  -webkit-animation: fade-in 0.8s 0.4s ease-in-out forwards;
+  animation: fade-in 0.8s 0.4s ease-in-out forwards;
 }
 #cup {
   top: 55%;
   left: 36%;
   width: 4%;
   opacity: 0;
-  -webkit-animation: fade-in 1s 0.2s ease-in-out forwards;
-  animation: fade-in 1s 0.2s ease-in-out forwards;
+  -webkit-animation: fade-in 0.8s 0.2s ease-in-out forwards;
+  animation: fade-in 0.8s 0.2s ease-in-out forwards;
 }
 #bag {
   top: 70.5%;
   right: 19.5%;
   width: 9.5%;
   opacity: 0;
-  -webkit-animation: fade-in 1s ease-in-out forwards;
-  animation: fade-in 1s ease-in-out forwards;
+  -webkit-animation: fade-in 0.8s ease-in-out forwards;
+  animation: fade-in 0.8s ease-in-out forwards;
 }
 
 @-webkit-keyframes fade-in {
@@ -1124,7 +1124,7 @@ footer i {
 }
 @media screen and (min-width: 390px) {
   #couch {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 @media screen and (max-width: 900px) {
@@ -1171,7 +1171,7 @@ footer i {
     padding-top: 60.83%;
   }
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
   h2 {
     font-size: 1.3rem;

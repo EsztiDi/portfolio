@@ -307,8 +307,8 @@ var touchstartX = 0;
 var touchendX = 0;
 
 function handleGesture() {
-  if (touchendX + 50 < touchstartX) plusSlides(1);
-  if (touchendX - 50 > touchstartX) plusSlides(-1);
+  if (touchendX + 60 < touchstartX) plusSlides(1);
+  if (touchendX - 60 > touchstartX) plusSlides(-1);
 }
 
 slides.forEach((el) => {

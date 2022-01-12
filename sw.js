@@ -25,7 +25,7 @@ self.addEventListener("install", (e) => {
           "/images/couch.svg",
           "/images/couch2.svg",
           "/images/cup.svg",
-          "/images/etracker.webp",
+          "/images/first.webp",
           "/images/girl.svg",
           "/images/girl2.svg",
           "/images/girl3.svg",
