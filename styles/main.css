@@ -31,7 +31,7 @@
   --bg: url("/images/bg2.svg");
   --couch: url("/images/couch2.svg");
   --bird1: url("/images/star1.svg");
-  --bird2: url("/images/star1.svg");
+  --bird2: url("/images/star2.svg");
   --bird-opacity: 0.4;
   --cloud-opacity: 0.4;
   --computer: url("/images/computer2.svg");
@@ -207,14 +207,14 @@ nav a:hover p {
 .home a {
   width: 300px;
   height: 150px;
-  background: -o-linear-gradient(315deg, #f8bb49, #f72867);
-  background: linear-gradient(135deg, #f8bb49, #f72867);
+  background: -o-linear-gradient(315deg, #f8b53a, #f61357);
+  background: linear-gradient(135deg, #f8b53a, #f61357);
   text-align: center;
   border-radius: 41% 59% 35% 65% / 43% 43% 57% 57%;
 }
 .about a {
-  background: -o-linear-gradient(225deg, #e3a3ed, #785af2);
-  background: linear-gradient(225deg, #e3a3ed, #785af2);
+  background: -o-linear-gradient(225deg, #e099eb, #7455f1);
+  background: linear-gradient(225deg, #e099eb, #7455f1);
   border-radius: 39% 61% 65% 35% / 74% 67% 33% 26%;
   -webkit-animation: wave1 6.5s ease-in-out infinite;
   animation: wave1 6.5s ease-in-out infinite;
@@ -224,18 +224,18 @@ nav a:hover p {
     linear,
     left top,
     left bottom,
-    from(#8dde96),
-    to(#26c4bf)
+    from(#81da8b),
+    to(#24bcb7)
   );
-  background: -o-linear-gradient(top, #8dde96, #26c4bf);
-  background: linear-gradient(180deg, #8dde96, #26c4bf);
+  background: -o-linear-gradient(top, #81da8b, #24bcb7);
+  background: linear-gradient(180deg, #81da8b, #24bcb7);
   border-radius: 58% 42% 69% 31% / 26% 59% 41% 74%;
   -webkit-animation: wave2 6s ease-in-out infinite;
   animation: wave2 6s ease-in-out infinite;
 }
 .contact a {
-  background: -o-linear-gradient(315deg, #58c9ea, #4b4bbf);
-  background: linear-gradient(135deg, #58c9ea, #4b4bbf);
+  background: -o-linear-gradient(315deg, #49c3e9, #4040b5);
+  background: linear-gradient(135deg, #49c3e9, #4040b5);
   border-radius: 64% 36% 53% 47% / 65% 36% 64% 35%;
   -webkit-animation: wave3 5.5s ease-in-out infinite;
   animation: wave3 5.5s ease-in-out infinite;
@@ -246,8 +246,8 @@ nav a:hover p {
   width: 110vw;
   height: 110vh;
   opacity: 0.8;
-  background: -o-linear-gradient(315deg, #58c9ea, #4b4bbf);
-  background: linear-gradient(135deg, #58c9ea, #4b4bbf);
+  background: -o-linear-gradient(315deg, #49c3e9, #4040b5);
+  background: linear-gradient(135deg, #49c3e9, #4040b5);
   background-image: url("/images/bg.svg");
   background-image: var(--bg);
   background-size: cover;
@@ -661,33 +661,33 @@ footer i {
   vertical-align: middle;
 }
 .fa-desktop {
-  color: #26c4bf;
+  color: #24bcb7;
 }
 .fa-code {
-  color: #4b4bbf;
+  color: #4040b5;
 }
 .fa-book-open {
-  color: #785af2;
+  color: #7455f1;
 }
 .fa-film {
-  color: #f8bb49;
+  color: #f8b53a;
 }
 .fa-globe-americas {
-  color: #58c9ea;
+  color: #49c3e9;
 }
 #about .buttons a {
   margin: 3rem auto 2rem;
   font-size: 1.1rem;
-  background: -o-linear-gradient(45deg, #e3a3ed, #785af2);
-  background: linear-gradient(45deg, #e3a3ed, #785af2);
-  background: -o-linear-gradient(45deg, #8dde96, #26c4bf);
-  background: linear-gradient(45deg, #8dde96, #26c4bf);
+  background: -o-linear-gradient(45deg, #e099eb, #7455f1);
+  background: linear-gradient(45deg, #e099eb, #7455f1);
+  background: -o-linear-gradient(45deg, #81da8b, #24bcb7);
+  background: linear-gradient(45deg, #81da8b, #24bcb7);
 }
 #about .buttons a:hover {
-  background: -o-linear-gradient(225deg, #e3a3ed, #785af2);
-  background: linear-gradient(225deg, #e3a3ed, #785af2);
-  background: -o-linear-gradient(225deg, #8dde96, #26c4bf);
-  background: linear-gradient(225deg, #8dde96, #26c4bf);
+  background: -o-linear-gradient(225deg, #e099eb, #7455f1);
+  background: linear-gradient(225deg, #e099eb, #7455f1);
+  background: -o-linear-gradient(225deg, #81da8b, #24bcb7);
+  background: linear-gradient(225deg, #81da8b, #24bcb7);
 }
 #about .buttons i {
   font-size: 1.2rem;
@@ -816,7 +816,6 @@ button {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
   background-color: #f8c547;
   border-radius: 50%;
   display: inline-block;
@@ -939,20 +938,20 @@ details ol {
   transition: color 0.3s ease-in-out;
 }
 #projects .buttons a:first-of-type {
-  background: -o-linear-gradient(315deg, #8dde96, #26c4bf);
-  background: linear-gradient(135deg, #8dde96, #26c4bf);
+  background: -o-linear-gradient(315deg, #81da8b, #24bcb7);
+  background: linear-gradient(135deg, #81da8b, #24bcb7);
 }
 #projects .buttons a:last-of-type {
-  background: -o-linear-gradient(225deg, #e3a3ed, #785af2);
-  background: linear-gradient(225deg, #e3a3ed, #785af2);
+  background: -o-linear-gradient(225deg, #e099eb, #7455f1);
+  background: linear-gradient(225deg, #e099eb, #7455f1);
 }
 #projects .buttons a:first-of-type:hover {
-  background: -o-linear-gradient(135deg, #8dde96, #26c4bf);
-  background: linear-gradient(315deg, #8dde96, #26c4bf);
+  background: -o-linear-gradient(135deg, #81da8b, #24bcb7);
+  background: linear-gradient(315deg, #81da8b, #24bcb7);
 }
 #projects .buttons a:last-of-type:hover {
-  background: -o-linear-gradient(45deg, #e3a3ed, #785af2);
-  background: linear-gradient(45deg, #e3a3ed, #785af2);
+  background: -o-linear-gradient(45deg, #e099eb, #7455f1);
+  background: linear-gradient(45deg, #e099eb, #7455f1);
 }
 
 #contact {
@@ -1229,6 +1228,9 @@ footer i {
   }
 }
 @media screen and (max-width: 640px) {
+  nav {
+    height: calc(100vh - 42px);
+  }
   section {
     height: calc(100vh - 60px - 42px);
   }
