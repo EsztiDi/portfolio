@@ -16,8 +16,6 @@ if (theme) {
   themeIcon.classList.replace("fa-moon", "fa-sun");
 }
 
-var birds = document.querySelectorAll(".bird");
-
 function changeTheme() {
   var hash = window.location.hash;
 
@@ -33,6 +31,7 @@ function changeTheme() {
         "animation: fade-in 0.5s ease-in-out forwards;"
       );
     }, 50);
+    // Update active link's animation due to color change and its filter
     if (hash.length > 0) {
       document
         .querySelector("." + hash.substring(1, hash.length) + " > a")
@@ -53,6 +52,7 @@ function changeTheme() {
         "animation: fade-in 0.5s ease-in-out forwards;"
       );
     }, 50);
+    // Update active link's animation due to color change and its filter
     if (hash.length > 0) {
       document
         .querySelector("." + hash.substring(1, hash.length) + " > a")
@@ -64,9 +64,6 @@ function changeTheme() {
         );
     }
   }
-  birds.forEach((el) => {
-    el.src = "/images/star1.svg";
-  });
 }
 
 themeButton.addEventListener("click", changeTheme);
@@ -91,8 +88,8 @@ function mouseMoveMethod(e) {
   var bird3X = x / 230;
   var bird3Y = y / 200;
   bird3.setAttribute("style", `top: ${61 + bird3Y}%; left: ${25 + bird3X}%;`);
-  var bird4X = x / 530;
-  var bird4Y = y / 500;
+  var bird4X = x / 430;
+  var bird4Y = y / 400;
   bird4.setAttribute("style", `top: ${16 + bird4Y}%; left: ${88 + bird4X}%;`);
   var bird5X = x / 230;
   var bird5Y = y / 200;
@@ -193,8 +190,8 @@ function select(id) {
   );
 
   // Hiding illustrations
-  couch.setAttribute("style", `display: none`);
-  bg.setAttribute("style", `display: none`);
+  couch.setAttribute("style", `display: none;`);
+  bg.setAttribute("style", `display: none;`);
 
   // Closing details on Projects
   details.forEach((el) => {
@@ -202,10 +199,10 @@ function select(id) {
   });
 
   var section = document.querySelector("#" + id);
-  // Hiding all sections before selectiong the active section
+  // Hiding all sections before selecting the active section
   sections.forEach((el) => {
     el.scrollTop = 0;
-    el.setAttribute("style", `display: none`);
+    el.setAttribute("style", `display: none;`);
   });
   // Making active section visible
   switch (id) {

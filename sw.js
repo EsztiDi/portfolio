@@ -32,6 +32,7 @@ self.addEventListener("install", (e) => {
           "/images/increscendoduo.webp",
           "/images/portfolio.webp",
           "/images/star1.svg",
+          "/images/star2.svg",
           "/images/underline.png",
           "/images/vancouver1887.webp",
           "/images/watchlistapp.webp",

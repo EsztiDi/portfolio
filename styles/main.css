@@ -397,7 +397,6 @@ nav a:hover p {
     opacity: 1;
   }
 }
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -406,6 +405,7 @@ nav a:hover p {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes wave1 {
   0%,
   100% {
@@ -484,6 +484,7 @@ nav a:hover p {
     transform: translateY(-20px);
   }
 }
+
 @-webkit-keyframes grow {
   0% {
     -webkit-transform: scale(1);
@@ -534,6 +535,7 @@ nav a:hover p {
     filter: var(--filter);
   }
 }
+
 @-webkit-keyframes underline {
   0% {
     background-size: 0%;
@@ -574,6 +576,7 @@ nav a:hover p {
     font-size: 1.3rem;
   }
 }
+
 @-webkit-keyframes cloud1 {
   0%,
   100% {
